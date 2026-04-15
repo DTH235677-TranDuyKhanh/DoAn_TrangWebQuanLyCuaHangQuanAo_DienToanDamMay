@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Levi's - Premium denim and casual wear for men, women, and kids">
+    <title>Levi's</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <%- include('styles') %>
+</head>
+
+<body>
+    <%- include('thanh_menu') %>
+
+    <section class="hero">
+        <div class="hero-left">
+            <img src="https://danviet.ex-cdn.com/files/f1/thumb_w/650/296231569849192448/2023/4/17/allen-tsai-levi-501-fall-2008-winter-2009-2-1681703387075-16817033879551827423733.jpg" alt="Levi's hero left" style="width: 100%">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-right">
+            <img src="https://www.acfc.com.vn/acfc_wp/wp-content/uploads/2026/01/image-760-819x1024.webp" alt="Levi's hero right" style="width: 100%">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-content-inner">
+                <div class="hero-label">UP TO 30% OFF</div>
+                <h1 class="hero-title">SPRING FAVORITES ARE HERE</h1>
+                <p class="hero-copy">Discover new denim fits, seasonal jackets, and everyday essentials crafted for effortless style.</p>
+                <div class="hero-buttons">
+                    <a class="hero-button" href="/san-pham?category=Men">Shop Men</a>
+                    <a class="hero-button" href="/san-pham?category=Women">Shop Women</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">SHOP BY COLLECTION</h2>
+        <p class="section-subtitle">The latest Levi’s looks curated for the season.</p>
+        <div class="cards-grid">
+            <article class="card-tile">
+                <img src="https://fado.vn/blog/wp-content/uploads/2021/05/ao-T-shirt-levis.jpg" alt="Denim collection">
+                <div class="card-body">
+                    <div class="card-label">Denim</div>
+                    <h3 class="card-heading">Classic Fit Jeans</h3>
+                    <p class="card-text">Modern cuts, premium denim, and timeless details for every wardrobe.</p>
+                    <a class="card-link" href="/san-pham?category=Denim">Shop Denim</a>
+                </div>
+            </article>
+            <article class="card-tile">
+                <img src="https://stylerepublik.vn/media/full/2025/12/2_tang_phuc_5-png.jpg" alt="Outerwear collection">
+                <div class="card-body">
+                    <div class="card-label">Outerwear</div>
+                    <h3 class="card-heading">Seasonal Jackets</h3>
+                    <p class="card-text">Lightweight layering pieces designed for cool mornings and warm afternoons.</p>
+                    <a class="card-link" href="/san-pham?category=Outerwear">Shop Jackets</a>
+                </div>
+            </article>
+            <article class="card-tile">
+                <img src="https://www.neo2.com/wp-content/uploads/2022/01/hailey-bieber-levis-501-90s-jeans-07.jpg" alt="Accessories collection">
+                <div class="card-body">
+                    <div class="card-label">Accessories</div>
+                    <h3 class="card-heading">Everyday Essentials</h3>
+                    <p class="card-text">Caps, belts, and must-have pieces to finish every outfit.</p>
+                    <a class="card-link" href="/san-pham?category=Accessories">Shop Accessories</a>
+                </div>
+            </article>
+            <article class="card-tile">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.hTMH574hkIgmf3cocWbxpwHaJQ?w=1680&h=2100&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Kids collection">
+                <div class="card-body">
+                    <div class="card-label">Kids</div>
+                    <h3 class="card-heading">Mini Styles</h3>
+                    <p class="card-text">Comfortable, colorful, and easy-to-wear pieces for little trendsetters.</p>
+                    <a class="card-link" href="/san-pham?category=Kids">Shop Kids</a>
+                </div>
+            </article>
+        </div>
+
+        <div class="highlight-row">
+            <div class="highlight-card">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.Lan1waItvUCocY84Y3_OXAHaEK?w=1250&h=704&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Sustainable denim">
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Sustainable Denim</h3>
+                    <p class="highlight-copy">Feel good in your favorite jeans with sustainable cotton and eco-friendly washes.</p>
+                    <a class="card-link" href="/about">Learn More</a>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&h=900&fit=crop" alt="Red Tab membership">
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Red Tab™ Member</h3>
+                    <p class="highlight-copy">Get free shipping, early access, and exclusive offers when you join the Levi's family.</p>
+                    <a class="card-link" href="/nguoi-dung/dang-ky">Join Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="newsletter">
+            <div class="newsletter-info">
+                <h3 class="newsletter-title">Stay in the Loop</h3>
+                <p class="newsletter-text">Subscribe for new drops, exclusive deals, and styling tips delivered straight to your inbox.</p>
+            </div>
+            <form class="newsletter-form" action="/subscribe" method="post">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    <%- include('chan_trang') %>
+</body>
+
+</html>

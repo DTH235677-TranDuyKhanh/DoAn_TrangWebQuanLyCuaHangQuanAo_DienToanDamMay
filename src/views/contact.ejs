@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Liên hệ với chúng tôi">
+    <title><%= title || 'Liên hệ' %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <%- include('styles') %>
+</head>
+
+<body>
+    <%- include('thanh_menu') %>
+
+    <section class="page-section contact-page">
+        <h1 class="page-title"><%= title %></h1>
+        <p class="page-copy">Bạn có câu hỏi? Hãy viết cho chúng tôi và đội ngũ chăm sóc khách hàng sẽ phản hồi sớm nhất.</p>
+        <% if (message) { %>
+            <div class="page-alert"><%- message %></div>
+        <% } %>
+        <div class="grid-2 contact-grid">
+            <div class="form-card">
+                <div class="panel-body">
+                    <span class="info-badge">Hỗ trợ khách hàng</span>
+                    <h2 class="panel-heading">Gửi yêu cầu hỗ trợ</h2>
+                    <p class="page-copy">Chia sẻ với chúng tôi chi tiết nội dung cần hỗ trợ và đội ngũ sẽ phản hồi trong vòng 24 giờ.</p>
+                    <form action="/contact" method="post">
+                        <div class="form-group">
+                            <label for="name">Họ tên</label>
+                            <input type="text" id="name" name="name" placeholder="Nhập họ tên">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Nhập email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Tiêu đề</label>
+                            <input type="text" id="subject" name="subject" placeholder="Tiêu đề liên hệ">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Nội dung</label>
+                            <textarea id="message" name="message" placeholder="Mô tả chi tiết yêu cầu"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="button-primary">Gửi liên hệ</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel contact-info-panel">
+                <div class="panel-body">
+                    <span class="info-badge">Thông tin nhanh</span>
+                    <h2 class="panel-heading">Liên hệ với chúng tôi</h2>
+                    <p class="page-copy">Chúng tôi luôn sẵn sàng hỗ trợ bạn, kể cả vào cuối tuần và ngày lễ.</p>
+                    <ul class="contact-info-list">
+                        <li class="contact-info-item">
+                            <span class="contact-info-icon"><i class="bi bi-envelope-fill"></i></span>
+                            <div>
+                                <strong>Email hỗ trợ</strong>
+                                <span>support@levistyle.vn</span>
+                            </div>
+                        </li>
+                        <li class="contact-info-item">
+                            <span class="contact-info-icon"><i class="bi bi-telephone-fill"></i></span>
+                            <div>
+                                <strong>Hotline</strong>
+                                <span>1900 1234</span>
+                            </div>
+                        </li>
+                        <li class="contact-info-item">
+                            <span class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></span>
+                            <div>
+                                <strong>Địa chỉ</strong>
+                                <span>123 Phố Thời Trang, Q1, TP.HCM</span>
+                            </div>
+                        </li>
+                        <li class="contact-info-item">
+                            <span class="contact-info-icon"><i class="bi bi-clock-fill"></i></span>
+                            <div>
+                                <strong>Giờ mở cửa</strong>
+                                <span>9:00 - 21:00 mỗi ngày</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('chan_trang') %>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "_id": {"$oid": "6480a5f5623e4a1b2c3d4e90"},
+    "name": "Lê Thị C",
+    "email": "lethic@example.com",
+    "subject": "Hỏi về chính sách đổi trả",
+    "message": "Xin chào, tôi muốn biết có thể đổi trả sản phẩm trong bao lâu không?",
+    "status": "new",
+    "createdAt": {"$date": "2026-04-10T16:20:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a5f5623e4a1b2c3d4e91"},
+    "name": "Phạm Văn D",
+    "email": "phamvand@example.com",
+    "subject": "Yêu cầu hỗ trợ kích thước",
+    "message": "Tôi muốn đổi áo thun size M sang size L. Xin vui lòng hướng dẫn.",
+    "status": "read",
+    "createdAt": {"$date": "2026-04-10T17:05:00.000Z"}
+  }
+]

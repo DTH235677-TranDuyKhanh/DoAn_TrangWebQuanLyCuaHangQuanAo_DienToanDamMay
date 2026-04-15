@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thanh toán đơn hàng">
+    <title><%= title || 'Thanh toán' %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <%- include('styles') %>
+</head>
+
+<body>
+    <%- include('thanh_menu') %>
+
+    <section class="page-section checkout-page">
+        <h1 class="page-title"><%= title || 'Thanh toán' %></h1>
+        <p class="page-copy">Nhập thông tin giao hàng và lựa chọn phương thức thanh toán để hoàn tất đơn hàng.</p>
+        <div class="grid-2 checkout-grid">
+            <div class="form-card checkout-card">
+                <div class="panel-body">
+                    <span class="info-badge">Thanh toán an toàn</span>
+                    <h2 class="panel-heading">Thông tin giao hàng</h2>
+                    <p class="page-copy">Điền chính xác thông tin giao hàng để đơn đặt nhanh chóng đến tay bạn.</p>
+                    <form action="/don-hang/thanh-toan" method="post">
+                        <div class="form-section">
+                            <h3>Chi tiết khách hàng</h3>
+                            <div class="form-group">
+                                <label for="fullname">Họ tên</label>
+                                <input type="text" id="fullname" name="fullname" value="<%= session?.user?.name || '' %>" placeholder="Họ và tên" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <input type="text" id="phone" name="phone" placeholder="Số điện thoại" required>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Địa chỉ giao hàng</h3>
+                            <div class="form-group">
+                                <label for="street">Địa chỉ</label>
+                                <input type="text" id="street" name="street" placeholder="Số nhà, đường phố" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Thành phố</label>
+                                <input type="text" id="city" name="city" placeholder="Thành phố" required>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Phương thức thanh toán</h3>
+                            <div class="form-group">
+                                <label for="paymentMethod">Chọn phương thức</label>
+                                <select id="paymentMethod" name="paymentMethod" required>
+                                    <option value="COD">Thanh toán khi nhận hàng</option>
+                                    <option value="CreditCard">Thẻ tín dụng</option>
+                                    <option value="Transfer">Chuyển khoản</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="button-primary">Xác nhận thanh toán</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel summary-card">
+                <div class="panel-body">
+                    <h2 class="panel-heading">Tóm tắt đơn hàng</h2>
+                    <% if (cart && cart.items.length) { %>
+                        <ul class="list-unstyled">
+                            <% cart.items.forEach(function(item) { %>
+                                <li class="summary-row"><span><strong><%= item.name %></strong> x <%= item.quantity %></span> <span><%= item.total.toLocaleString() %> ₫</span></li>
+                            <% }); %>
+                        </ul>
+                        <div class="summary-row"><span>Tổng giá trị sản phẩm</span><strong><%= cart.totalPrice.toLocaleString() %> ₫</strong></div>
+                        <div class="summary-row"><span>Phí vận chuyển</span><strong>50.000 ₫</strong></div>
+                        <div class="summary-row summary-total"><span>Tổng thanh toán</span><strong><%= (cart.totalPrice + 50000).toLocaleString() %> ₫</strong></div>
+                    <% } else { %>
+                        <div class="alert">Giỏ hàng của bạn đang trống.</div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('chan_trang') %>
+</body>
+
+</html>

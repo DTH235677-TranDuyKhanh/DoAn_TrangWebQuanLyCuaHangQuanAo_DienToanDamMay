@@ -1,0 +1,1268 @@
+[
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e60"
+    },
+    "name": "Áo thun cổ tròn Basic",
+    "slug": "ao-thun-co-tron-basic",
+    "description": "Áo thun cotton thoáng mát, form rộng vừa vặn, dễ phối đồ.",
+    "price": 250000,
+    "salePrice": 199000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e50"
+    },
+    "brand": "StreetWear",
+    "images": [
+      "/images/cotron.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Đen",
+      "Trắng",
+      "Xám"
+    ],
+    "stock": 120,
+    "featured": true,
+    "tags": [
+      "basic",
+      "cotton",
+      "casual"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e61"
+    },
+    "name": "Quần jean xanh rách gối",
+    "slug": "quan-jean-xanh-rach-goi",
+    "description": "Quần jean dáng slim fit, trẻ trung, phù hợp nhiều phong cách.",
+    "price": 450000,
+    "salePrice": 390000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e51"
+    },
+    "brand": "DenimPro",
+    "images": [
+      "/images/jeansrach.webp"
+    ],
+    "sizes": [
+      "29",
+      "30",
+      "31",
+      "32"
+    ],
+    "colors": [
+      "Xanh"
+    ],
+    "stock": 75,
+    "featured": false,
+    "tags": [
+      "jean",
+      "street",
+      "nam"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:10:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e62"
+    },
+    "name": "Áo khoác bomber nỉ",
+    "slug": "ao-khoac-bomber-ni",
+    "description": "Áo khoác bomber ấm áp, phù hợp mùa thu đông.",
+    "price": 620000,
+    "salePrice": 580000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e52"
+    },
+    "brand": "WinterWear",
+    "images": [
+      "/images/bomber.webp"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Đen",
+      "Xanh Navy"
+    ],
+    "stock": 45,
+    "featured": true,
+    "tags": [
+      "bomber",
+      "warm",
+      "stylish"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:20:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e63"
+    },
+    "name": "Áo sơ mi trắng form ôm",
+    "slug": "ao-so-mi-trang-form-om",
+    "description": "Áo sơ mi trắng thanh lịch, dễ dàng phối với quần âu hoặc jean.",
+    "price": 320000,
+    "salePrice": 279000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e53"
+    },
+    "brand": "OfficeChic",
+    "images": [
+      "/images/somi.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Trắng"
+    ],
+    "stock": 95,
+    "featured": false,
+    "tags": [
+      "office",
+      "classic",
+      "formal"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:30:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e64"
+    },
+    "name": "Váy maxi hoa nhí",
+    "slug": "vay-maxi-hoa-nhi",
+    "description": "Váy maxi dáng dài, họa tiết hoa nhí ngọt ngào cho mùa hè.",
+    "price": 480000,
+    "salePrice": 420000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e54"
+    },
+    "brand": "Femina",
+    "images": [
+      "/images/maxi.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Vàng",
+      "Xanh"
+    ],
+    "stock": 60,
+    "featured": true,
+    "tags": [
+      "vay",
+      "hoa",
+      "summer"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:35:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:35:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e65"
+    },
+    "name": "Nón lưỡi trai classic",
+    "slug": "non-luoi-trai-classic",
+    "description": "Nón lưỡi trai phong cách streetwear, phù hợp cả nam và nữ.",
+    "price": 180000,
+    "salePrice": 150000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e55"
+    },
+    "brand": "UrbanCaps",
+    "images": [
+      "/images/cap.webp"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Đen",
+      "Nâu"
+    ],
+    "stock": 140,
+    "featured": false,
+    "tags": [
+      "cap",
+      "accessory",
+      "street"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:40:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e66"
+    },
+    "name": "Thắt lưng da nam",
+    "slug": "that-lung-da-nam",
+    "description": "Thắt lưng da cao cấp, mặt kim loại sang trọng.",
+    "price": 220000,
+    "salePrice": 190000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e55"
+    },
+    "brand": "LeatherPlus",
+    "images": [
+      "/images/belt.webp"
+    ],
+    "sizes": [
+      "90",
+      "95",
+      "100"
+    ],
+    "colors": [
+      "Đen",
+      "Nâu"
+    ],
+    "stock": 85,
+    "featured": false,
+    "tags": [
+      "belt",
+      "da",
+      "formal"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:45:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e67"
+    },
+    "name": "Giày sneaker trắng",
+    "slug": "giay-sneaker-trang",
+    "description": "Giày sneaker trắng thoải mái, dễ phối đồ với phong cách streetwear.",
+    "price": 550000,
+    "salePrice": 499000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e56"
+    },
+    "brand": "RunFast",
+    "images": [
+      "/images/sneaker.webp"
+    ],
+    "sizes": [
+      "38",
+      "39",
+      "40",
+      "41",
+      "42"
+    ],
+    "colors": [
+      "Trắng"
+    ],
+    "stock": 110,
+    "featured": true,
+    "tags": [
+      "sneaker",
+      "white",
+      "sport"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:50:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e68"
+    },
+    "name": "Túi tote vải bố",
+    "slug": "tui-tote-vai-bo",
+    "description": "Túi tote vải bố bền đẹp, dùng đi học hoặc đi chơi hàng ngày.",
+    "price": 180000,
+    "salePrice": 160000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e57"
+    },
+    "brand": "EcoBag",
+    "images": [
+      "/images/tote.webp"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Be",
+      "Xanh"
+    ],
+    "stock": 200,
+    "featured": false,
+    "tags": [
+      "bag",
+      "eco",
+      "daily"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T09:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T09:55:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e69"
+    },
+    "name": "Bộ đồ ngủ pijama nữ",
+    "slug": "bo-do-pijama-nu",
+    "description": "Bộ đồ ngủ pijama nữ mềm mại, thiết kế tinh tế và thoải mái.",
+    "price": 320000,
+    "salePrice": 289000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e58"
+    },
+    "brand": "LoungeBelle",
+    "images": [
+      "/images/pijama.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Đen",
+      "Hồng"
+    ],
+    "stock": 90,
+    "featured": false,
+    "tags": [
+      "lingerie",
+      "ren",
+      "female"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e6a"
+    },
+    "name": "Đồng hồ dây da",
+    "slug": "dong-ho-day-da",
+    "description": "Đồng hồ dây da classic, phù hợp cả phong cách công sở và dạo phố.",
+    "price": 1200000,
+    "salePrice": 1090000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e59"
+    },
+    "brand": "TimeLegend",
+    "images": [
+      "/images/watch.webp"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Nâu",
+      "Đen"
+    ],
+    "stock": 30,
+    "featured": true,
+    "tags": [
+      "watch",
+      "classic",
+      "leather"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:05:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e6b"
+    },
+    "name": "Kính mát unisex",
+    "slug": "kinh-mat-unisex",
+    "description": "Kính mát thời trang unisex chống tia UV, phù hợp đi biển và dạo phố.",
+    "price": 240000,
+    "salePrice": 210000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e55"
+    },
+    "brand": "SunStyle",
+    "images": [
+      "/images/glasses.webp"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Đen",
+      "Nâu"
+    ],
+    "stock": 70,
+    "featured": false,
+    "tags": [
+      "sunglasses",
+      "summer",
+      "accessory"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:10:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e6c"
+    },
+    "name": "Áo thun polo nam",
+    "slug": "ao-thun-polo-nam",
+    "description": "Áo thun polo mềm mại, form chuẩn, phù hợp đi làm và đi chơi.",
+    "price": 280000,
+    "salePrice": 249000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e50"
+    },
+    "brand": "PoloTrend",
+    "images": [
+      "/images/polo.webp"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Xanh Navy",
+      "Trắng",
+      "Đen"
+    ],
+    "stock": 130,
+    "featured": true,
+    "tags": [
+      "polo",
+      "smart",
+      "male"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:15:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e6d"
+    },
+    "name": "Quần short jean nam",
+    "slug": "quan-short-jean-nam",
+    "description": "Quần short jean trẻ trung, tiện dụng cho mùa hè.",
+    "price": 320000,
+    "salePrice": 290000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e51"
+    },
+    "brand": "DenimPro",
+    "images": [
+      "/images/shorts.webp"
+    ],
+    "sizes": [
+      "29",
+      "30",
+      "31",
+      "32"
+    ],
+    "colors": [
+      "Xanh"
+    ],
+    "stock": 95,
+    "featured": false,
+    "tags": [
+      "short",
+      "denim",
+      "summer"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:20:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e6e"
+    },
+    "name": "Áo khoác jeans nữ",
+    "slug": "ao-khoac-jeans-nu",
+    "description": "Áo khoác jeans nữ năng động, dễ phối cùng chân váy hoặc quần jean.",
+    "price": 680000,
+    "salePrice": 610000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e52"
+    },
+    "brand": "DenimQueen",
+    "images": [
+      "/images/jacket.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Xanh"
+    ],
+    "stock": 55,
+    "featured": true,
+    "tags": [
+      "jeans",
+      "jacket",
+      "female"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:25:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:25:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e6f"
+    },
+    "name": "Áo sơ mi kẻ caro",
+    "slug": "ao-so-mi-ke-caro",
+    "description": "Áo sơ mi kẻ caro trẻ trung, phù hợp cả nam và nữ.",
+    "price": 340000,
+    "salePrice": 299000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e53"
+    },
+    "brand": "Carotastic",
+    "images": [
+      "/images/caro-shirt.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Đen"
+    ],
+    "stock": 70,
+    "featured": false,
+    "tags": [
+      "checked",
+      "casual",
+      "unisex"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:30:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e70"
+    },
+    "name": "Váy xòe chấm bi",
+    "slug": "vay-xoe-cham-bi",
+    "description": "Váy xòe chấm bi phong cách vintage, làm nổi bật sự nữ tính.",
+    "price": 520000,
+    "salePrice": 470000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e54"
+    },
+    "brand": "VintageLace",
+    "images": [
+      "/images/vintage-dress.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Trắng",
+      "Đen"
+    ],
+    "stock": 50,
+    "featured": true,
+    "tags": [
+      "vintage",
+      "polka",
+      "romantic"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:35:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:35:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e71"
+    },
+    "name": "Túi xách tay da PU",
+    "slug": "tui-xach-tay-da-pu",
+    "description": "Túi xách tay da PU sang trọng, phù hợp đi làm và dự tiệc.",
+    "price": 420000,
+    "salePrice": 380000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e57"
+    },
+    "brand": "ClassyBag",
+    "images": [
+      "/images/purse.webp"    
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Đen",
+      "Nâu"
+    ],
+    "stock": 90,
+    "featured": false,
+    "tags": [
+      "bag",
+      "work",
+      "leather"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:40:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e72"
+    },
+    "name": "Áo ngủ nam SS button down",
+    "slug": "ao-ngu-nam-ss-button-down",
+    "description": "Áo ngủ nam SS button down thoải mái, thích hợp mặc hàng ngày.",
+    "price": 190000,
+    "salePrice": 170000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e58"
+    },
+    "brand": "LoungeBelle",
+    "images": [
+      "/images/nightshirt.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Đen",
+      "Hồng"
+    ],
+    "stock": 105,
+    "featured": false,
+    "tags": [
+      "lingerie",
+      "bra",
+      "lace"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:45:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e73"
+    },
+    "name": "Giày sandal nữ",
+    "slug": "giay-sandal-nu",
+    "description": "Giày sandal êm chân, kiểu dáng nữ tính cho mùa hè.",
+    "price": 360000,
+    "salePrice": 330000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e56"
+    },
+    "brand": "SummerStep",
+    "images": [
+      "/images/sandal.webp"
+    ],
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39"
+    ],
+    "colors": [
+      "Hồng",
+      "Trắng"
+    ],
+    "stock": 80,
+    "featured": false,
+    "tags": [
+      "sandal",
+      "female",
+      "summer"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:50:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e74"
+    },
+    "name": "Giày cao gót đen",
+    "slug": "giay-cao-got-den",
+    "description": "Giày cao gót đen thanh lịch, phù hợp đi tiệc và công sở.",
+    "price": 520000,
+    "salePrice": 480000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e56"
+    },
+    "brand": "ElegantHeel",
+    "images": [
+      "/images/high-heel.webp"    ],
+    "sizes": [
+      "35",
+      "36",
+      "37",
+      "38"
+    ],
+    "colors": [
+      "Đen"
+    ],
+    "stock": 40,
+    "featured": true,
+    "tags": [
+      "heels",
+      "dressy",
+      "female"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T10:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T10:55:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e75"
+    },
+    "name": "Túi đeo chéo mini",
+    "slug": "tui-deo-cheo-mini",
+    "description": "Túi đeo chéo mini nhỏ gọn, tiện dụng cho di chuyển hàng ngày.",
+    "price": 220000,
+    "salePrice": 190000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e57"
+    },
+    "brand": "MiniCarry",
+    "images": [
+      "/images/bag.webp"    
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Đen",
+      "Hồng"
+    ],
+    "stock": 120,
+    "featured": false,
+    "tags": [
+      "mini",
+      "crossbody",
+      "daily"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e76"
+    },
+    "name": "Quần tây công sở nữ",
+    "slug": "quan-tay-cong-so-nu",
+    "description": "Quần tây nữ công sở form suông, lịch sự và thoải mái.",
+    "price": 380000,
+    "salePrice": 349000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e51"
+    },
+    "brand": "OfficeWear",
+    "images": [
+      "/images/suit-pants.webp"    
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Đen",
+      "Xám"
+    ],
+    "stock": 75,
+    "featured": false,
+    "tags": [
+      "formal",
+      "work",
+      "female"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:05:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e77"
+    },
+    "name": "Áo hoodie nỉ nhẹ",
+    "slug": "ao-hoodie-ni-nhe",
+    "description": "Áo hoodie nỉ nhẹ, ấm áp cho mùa đông và buổi sáng se lạnh.",
+    "price": 390000,
+    "salePrice": 349000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e52"
+    },
+    "brand": "CozyWear",
+    "images": [
+      "/images/hoodie.webp"    
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Xám",
+      "Đen",
+      "Xanh"
+    ],
+    "stock": 110,
+    "featured": true,
+    "tags": [
+      "hoodie",
+      "warm",
+      "street"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:10:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e78"
+    },
+    "name": "Áo thun dài tay nữ",
+    "slug": "ao-thun-dai-tay-nu",
+    "description": "Áo thun dài tay nữ kiểu dáng ôm, phù hợp mặc đi học và đi chơi.",
+    "price": 260000,
+    "salePrice": 229000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e50"
+    },
+    "brand": "FemStyle",
+    "images": [
+      "/images/longsleeve.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Hồng",
+      "Kem",
+      "Xám"
+    ],
+    "stock": 95,
+    "featured": false,
+    "tags": [
+      "longsleeve",
+      "female",
+      "casual"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:15:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e79"
+    },
+    "name": "Quần jogger nam",
+    "slug": "quan-jogger-nam",
+    "description": "Quần jogger nam co giãn, phù hợp mặc nhà và dạo phố.",
+    "price": 310000,
+    "salePrice": 279000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e51"
+    },
+    "brand": "ComfortFit",
+    "images": [
+      "/images/jogger.webp"    
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Đen",
+      "Xám"
+    ],
+    "stock": 98,
+    "featured": false,
+    "tags": [
+      "jogger",
+      "athleisure",
+      "male"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:20:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e7a"
+    },
+    "name": "Đầm suông trước ngực",
+    "slug": "dam-suong-truoc-nguc",
+    "description": "Đầm suông nhẹ nhàng, tiết kiệm thời gian mặc đẹp.",
+    "price": 450000,
+    "salePrice": 410000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e54"
+    },
+    "brand": "MellowDress",
+    "images": [
+      "/images/shift-dress.webp"    
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Be",
+      "Hồng"
+    ],
+    "stock": 65,
+    "featured": false,
+    "tags": [
+      "dress",
+      "easy",
+      "female"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:25:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:25:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e7b"
+    },
+    "name": "Mũ bucket jean",
+    "slug": "mu-bucket-jean",
+    "description": "Mũ bucket jean phong cách đường phố, dễ phối cùng nhiều bộ đồ.",
+    "price": 180000,
+    "salePrice": 159000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e55"
+    },
+    "brand": "StreetCap",
+    "images": [
+      "/images/street-cap.webp"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Xanh Denim"
+    ],
+    "stock": 120,
+    "featured": false,
+    "tags": [
+      "hat",
+      "denim",
+      "accessory"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:30:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e7c"
+    },
+    "name": "Ba lô du lịch mini",
+    "slug": "ba-lo-du-lich-mini",
+    "description": "Ba lô mini tiện dụng, phù hợp đi du lịch nhẹ và đi học.",
+    "price": 290000,
+    "salePrice": 259000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e57"
+    },
+    "brand": "TravelPack",
+    "images": [
+      "/images/backpack.webp"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Xám",
+      "Đen"
+    ],
+    "stock": 85,
+    "featured": false,
+    "tags": [
+      "backpack",
+      "travel",
+      "daily"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:35:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:35:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e7d"
+    },
+    "name": "Quần legging thể thao",
+    "slug": "quan-legging-the-thao",
+    "description": "Quần legging co giãn, phù hợp tập gym và yoga.",
+    "price": 240000,
+    "salePrice": 210000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e51"
+    },
+    "brand": "SportsFlex",
+    "images": [
+      "/images/legging.webp"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Đen",
+      "Xanh"
+    ],
+    "stock": 100,
+    "featured": false,
+    "tags": [
+      "sports",
+      "fitness",
+      "female"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:40:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e7e"
+    },
+    "name": "Vòng cổ bản nhỏ",
+    "slug": "vong-co-ban-nho",
+    "description": "Vòng cổ mảnh, thiết kế tối giản, dễ phối nhiều phong cách.",
+    "price": 150000,
+    "salePrice": 129000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e55"
+    },
+    "brand": "TinyCharm",
+    "images": [
+    "/images/charm.webp"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Bạc",
+      "Vàng"
+    ],
+    "stock": 140,
+    "featured": false,
+    "tags": [
+      "jewelry",
+      "necklace",
+      "simple"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:45:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6480a2f5623e4a1b2c3d4e7f"
+    },
+    "name": "Kẹp tóc xinh xắn",
+    "slug": "kep-toc-xinh-xan",
+    "description": "Kẹp tóc màu pastel nhỏ xinh, phù hợp nhiều kiểu tóc.",
+    "price": 70000,
+    "salePrice": 65000,
+    "category": {
+      "$oid": "6480a1f5623e4a1b2c3d4e55"
+    },
+    "brand": "PrettyClip",
+    "images": [
+      "/images/pretty-clip.webp"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "colors": [
+      "Hồng",
+      "Xanh"
+    ],
+    "stock": 210,
+    "featured": false,
+    "tags": [
+      "hair",
+      "accessory",
+      "cute"
+    ],
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-04-10T11:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-04-10T11:50:00.000Z"
+    }
+  }
+]

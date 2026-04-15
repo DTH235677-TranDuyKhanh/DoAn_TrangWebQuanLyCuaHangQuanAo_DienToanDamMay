@@ -1,0 +1,16 @@
+[
+  {
+    "_id": {"$oid": "6480a6f5623e4a1b2c3d4ea0"},
+    "email": "khachhang1@example.com",
+    "source": "website",
+    "isActive": true,
+    "createdAt": {"$date": "2026-04-08T09:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a6f5623e4a1b2c3d4ea1"},
+    "email": "khachhang2@example.com",
+    "source": "website",
+    "isActive": true,
+    "createdAt": {"$date": "2026-04-09T11:30:00.000Z"}
+  }
+]

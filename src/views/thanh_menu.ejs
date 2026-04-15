@@ -1,0 +1,56 @@
+<div class="top-bar">
+    <button class="top-bar-icon" type="button" id="page-back" title="Quay lại">‹</button>
+    <div class="top-bar-center">Levi's® Red Tab™ Members Get Free Standard Ground Shipping On Orders Of $75+, Plus Free Returns <a href="#">Details</a></div>
+    <button class="top-bar-icon" type="button" id="page-forward" title="Tiến tới">›</button>
+</div>
+ 
+<header class="header">
+    <div class="header-inner">
+        <a href="/" class="brand-logo"><img src="/images/levis-logo.svg" alt="Levis"></a>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="/san-pham">Sản phẩm</a></li>
+                <li><a href="/danh-muc">Danh mục</a></li>
+                <li><a href="/about">Về chúng tôi</a></li>
+                <li><a href="/contact">Liên hệ</a></li>
+                <% if (session?.user && ['manager', 'admin'].includes(session.user.role)) { %>
+                    <li><a href="/admin">Quản lý</a></li>
+                <% } %>
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <form class="search-box" action="/search" method="get">
+                <input type="search" name="q" placeholder="Bạn tìm gì..." aria-label="Tìm kiếm sản phẩm">
+            </form>
+            <% if (session && session.user) { %>
+                <a class="header-icon" href="/nguoi-dung/tai-khoan" title="Tài khoản"><i class="bi bi-person-circle"></i></a>
+                <a class="header-icon" href="/nguoi-dung/dang-xuat" title="Đăng xuất"><i class="bi bi-box-arrow-right"></i></a>
+            <% } else { %>
+                <a class="header-icon" href="/nguoi-dung/dang-nhap" title="Đăng nhập"><i class="bi bi-person"></i></a>
+            <% } %>
+            <a class="header-icon" href="/don-hang/gio-hang" title="Giỏ hàng"><i class="bi bi-bag"></i><span class="cart-count"><%= session && session.cart ? session.cart.items.length : 0 %></span></a>
+        </div>
+    </div>
+</header>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const back = document.getElementById('page-back');
+    const forward = document.getElementById('page-forward');
+
+    if (back) {
+      back.addEventListener('click', function () {
+        history.back();
+      });
+    }
+
+    if (forward) {
+      forward.addEventListener('click', function () {
+        history.forward();
+      });
+    }
+  });
+</script>
+
+<% if (message) { %>
+    <div class="page-alert"><%- message %></div>
+<% } %>

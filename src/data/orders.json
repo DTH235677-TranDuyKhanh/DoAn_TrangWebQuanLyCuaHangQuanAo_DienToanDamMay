@@ -1,0 +1,298 @@
+[
+  {
+    "_id": {"$oid": "6480a4f5623e4a1b2c3d4e80"},
+    "user": {"$oid": "6480a3f5623e4a1b2c3d4e70"},
+    "items": [
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e60"},
+        "name": "Áo thun cổ tròn Basic",
+        "quantity": 2,
+        "price": 199000,
+        "size": "M",
+        "color": "Đen"
+      },
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e61"},
+        "name": "Quần jean xanh rách gối",
+        "quantity": 1,
+        "price": 390000,
+        "size": "31",
+        "color": "Xanh"
+      }
+    ],
+    "shippingAddress": {
+      "fullname": "Nguyễn Văn A",
+      "street": "123 Đường Lê Lợi",
+      "city": "Hồ Chí Minh",
+      "state": "Quận 1",
+      "postalCode": "700000",
+      "country": "Việt Nam",
+      "phone": "0901234567"
+    },
+    "paymentMethod": "Thẻ tín dụng",
+    "totalPrice": 788000,
+    "status": "processing",
+    "isPaid": true,
+    "paidAt": {"$date": "2026-04-10T14:30:00.000Z"},
+    "deliveredAt": null,
+    "createdAt": {"$date": "2026-04-10T14:10:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a4f5623e4a1b2c3d4e81"},
+    "user": {"$oid": "6480a3f5623e4a1b2c3d4e71"},
+    "items": [
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e62"},
+        "name": "Áo khoác bomber nỉ",
+        "quantity": 1,
+        "price": 580000,
+        "size": "L",
+        "color": "Đen"
+      }
+    ],
+    "shippingAddress": {
+      "fullname": "Trần Thị B",
+      "street": "45 Phố Huế",
+      "city": "Hà Nội",
+      "state": "Hai Bà Trưng",
+      "postalCode": "100000",
+      "country": "Việt Nam",
+      "phone": "0912345678"
+    },
+    "paymentMethod": "COD",
+    "totalPrice": 580000,
+    "status": "pending",
+    "isPaid": false,
+    "paidAt": null,
+    "deliveredAt": null,
+    "createdAt": {"$date": "2026-04-10T15:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a4f5623e4a1b2c3d4e82"},
+    "user": {"$oid": "6480a3f5623e4a1b2c3d4e70"},
+    "items": [
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e63"},
+        "name": "Áo sơ mi trắng form ôm",
+        "quantity": 1,
+        "price": 279000,
+        "size": "L",
+        "color": "Trắng"
+      },
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e65"},
+        "name": "Nón lưỡi trai classic",
+        "quantity": 1,
+        "price": 150000,
+        "size": "One Size",
+        "color": "Đen"
+      }
+    ],
+    "shippingAddress": {
+      "fullname": "Nguyễn Văn A",
+      "street": "123 Đường Lê Lợi",
+      "city": "Hồ Chí Minh",
+      "state": "Quận 1",
+      "postalCode": "700000",
+      "country": "Việt Nam",
+      "phone": "0901234567"
+    },
+    "paymentMethod": "Chuyển khoản",
+    "totalPrice": 429000,
+    "status": "delivered",
+    "isPaid": true,
+    "paidAt": {"$date": "2026-04-11T08:00:00.000Z"},
+    "deliveredAt": {"$date": "2026-04-11T12:00:00.000Z"},
+    "createdAt": {"$date": "2026-04-11T07:30:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a4f5623e4a1b2c3d4e83"},
+    "user": {"$oid": "6480a3f5623e4a1b2c3d4e72"},
+    "items": [
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e64"},
+        "name": "Váy maxi hoa nhí",
+        "quantity": 1,
+        "price": 420000,
+        "size": "M",
+        "color": "Vàng"
+      },
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e66"},
+        "name": "Thắt lưng da nam",
+        "quantity": 1,
+        "price": 190000,
+        "size": "95",
+        "color": "Nâu"
+      }
+    ],
+    "shippingAddress": {
+      "fullname": "Admin",
+      "street": "1 Nguyễn Huệ",
+      "city": "Hồ Chí Minh",
+      "state": "Quận 1",
+      "postalCode": "700000",
+      "country": "Việt Nam",
+      "phone": "0987654321"
+    },
+    "paymentMethod": "COD",
+    "totalPrice": 610000,
+    "status": "shipped",
+    "isPaid": false,
+    "paidAt": null,
+    "deliveredAt": null,
+    "createdAt": {"$date": "2026-04-11T09:10:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a4f5623e4a1b2c3d4e84"},
+    "user": {"$oid": "6480a3f5623e4a1b2c3d4e70"},
+    "items": [
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e67"},
+        "name": "Giày sneaker trắng",
+        "quantity": 1,
+        "price": 499000,
+        "size": "40",
+        "color": "Trắng"
+      },
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e66"},
+        "name": "Thắt lưng da nam",
+        "quantity": 1,
+        "price": 190000,
+        "size": "95",
+        "color": "Đen"
+      }
+    ],
+    "shippingAddress": {
+      "fullname": "Nguyễn Văn A",
+      "street": "123 Đường Lê Lợi",
+      "city": "Hồ Chí Minh",
+      "state": "Quận 1",
+      "postalCode": "700000",
+      "country": "Việt Nam",
+      "phone": "0901234567"
+    },
+    "paymentMethod": "COD",
+    "totalPrice": 689000,
+    "status": "delivered",
+    "isPaid": true,
+    "paidAt": {"$date": "2026-04-11T10:45:00.000Z"},
+    "deliveredAt": {"$date": "2026-04-12T14:00:00.000Z"},
+    "createdAt": {"$date": "2026-04-11T10:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a4f5623e4a1b2c3d4e85"},
+    "user": {"$oid": "6480a3f5623e4a1b2c3d4e71"},
+    "items": [
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e68"},
+        "name": "Túi tote vải bố",
+        "quantity": 2,
+        "price": 160000,
+        "size": "One Size",
+        "color": "Be"
+      },
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e69"},
+        "name": "Bộ đồ lót ren nữ",
+        "quantity": 1,
+        "price": 289000,
+        "size": "M",
+        "color": "Hồng"
+      }
+    ],
+    "shippingAddress": {
+      "fullname": "Trần Thị B",
+      "street": "45 Phố Huế",
+      "city": "Hà Nội",
+      "state": "Hai Bà Trưng",
+      "postalCode": "100000",
+      "country": "Việt Nam",
+      "phone": "0912345678"
+    },
+    "paymentMethod": "Chuyển khoản",
+    "totalPrice": 609000,
+    "status": "processing",
+    "isPaid": true,
+    "paidAt": {"$date": "2026-04-11T11:00:00.000Z"},
+    "deliveredAt": null,
+    "createdAt": {"$date": "2026-04-11T10:50:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a4f5623e4a1b2c3d4e86"},
+    "user": {"$oid": "6480a3f5623e4a1b2c3d4e70"},
+    "items": [
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e6a"},
+        "name": "Đồng hồ dây da",
+        "quantity": 1,
+        "price": 1090000,
+        "size": "One Size",
+        "color": "Nâu"
+      },
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e62"},
+        "name": "Áo khoác bomber nỉ",
+        "quantity": 1,
+        "price": 580000,
+        "size": "M",
+        "color": "Xanh Navy"
+      }
+    ],
+    "shippingAddress": {
+      "fullname": "Nguyễn Văn A",
+      "street": "123 Đường Lê Lợi",
+      "city": "Hồ Chí Minh",
+      "state": "Quận 1",
+      "postalCode": "700000",
+      "country": "Việt Nam",
+      "phone": "0901234567"
+    },
+    "paymentMethod": "Thẻ tín dụng",
+    "totalPrice": 1670000,
+    "status": "shipped",
+    "isPaid": true,
+    "paidAt": {"$date": "2026-04-11T12:00:00.000Z"},
+    "deliveredAt": null,
+    "createdAt": {"$date": "2026-04-11T11:45:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "6480a4f5623e4a1b2c3d4e87"},
+    "user": {"$oid": "6480a3f5623e4a1b2c3d4e71"},
+    "items": [
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e65"},
+        "name": "Nón lưỡi trai classic",
+        "quantity": 1,
+        "price": 150000,
+        "size": "One Size",
+        "color": "Nâu"
+      },
+      {
+        "product": {"$oid": "6480a2f5623e4a1b2c3d4e66"},
+        "name": "Thắt lưng da nam",
+        "quantity": 1,
+        "price": 190000,
+        "size": "100",
+        "color": "Đen"
+      }
+    ],
+    "shippingAddress": {
+      "fullname": "Trần Thị B",
+      "street": "45 Phố Huế",
+      "city": "Hà Nội",
+      "state": "Hai Bà Trưng",
+      "postalCode": "100000",
+      "country": "Việt Nam",
+      "phone": "0912345678"
+    },
+    "paymentMethod": "COD",
+    "totalPrice": 340000,
+    "status": "cancelled",
+    "isPaid": false,
+    "paidAt": null,
+    "deliveredAt": null,
+    "createdAt": {"$date": "2026-04-11T12:20:00.000Z"}
+  }
+]
