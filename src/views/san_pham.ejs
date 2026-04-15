@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View sản phẩm: danh sách sản phẩm và bộ lọc category/search. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -12,25 +12,30 @@
 </head>
 
 <body>
+    <!-- Chèn menu chung của trang, bao gồm logo, điều hướng, tìm kiếm và biểu tượng giỏ hàng. -->
     <%- include('thanh_menu') %>
 
     <section class="page-section">
         <h1 class="page-title"><%= title || 'Sản phẩm' %></h1>
         <p class="page-copy"><%= description || 'Duyệt qua bộ sưu tập quần áo và phụ kiện mới nhất.' %></p>
         <div class="cards-grid">
+            <!-- Kiểm tra nếu có sản phẩm thì lặp qua và hiển thị từng card sản phẩm. -->
             <% if (products && products.length) { %>
                 <% products.forEach(function(product) { %>
                     <article class="card-tile">
                         <img src="<%= (product.images && product.images[0]) || 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900&h=1200&fit=crop' %>" alt="<%= product.name %>" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x600?text=No+Image'">
                         <div class="card-body">
+                            <!-- Hiển thị tên danh mục nếu có, nếu không thì mặc định là 'Sản phẩm'. -->
                             <div class="card-label"><%= product.category && product.category.name ? product.category.name : 'Sản phẩm' %></div>
                             <h3 class="card-heading"><%= product.name %></h3>
+                            <!-- Nếu mô tả quá dài thì cắt bớt và thêm dấu '...'. -->
                             <p class="card-text"><%= product.description ? (product.description.length > 120 ? product.description.substring(0, 120) + '...' : product.description) : 'Mô tả sản phẩm chưa có.' %></p>
                             <a class="card-link" href="/san-pham/<%= product.slug %>">Xem chi tiết</a>
                         </div>
                     </article>
                 <% }); %>
             <% } else { %>
+                <!-- Hiển thị thông báo khi không có sản phẩm nào để show. -->
                 <div class="alert">Chưa có sản phẩm nào trong danh sách.</div>
             <% } %>
         </div>

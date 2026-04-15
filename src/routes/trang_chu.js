@@ -1,13 +1,13 @@
 /**
  * Home Routes
- * Xử lý các route cho trang chủ và các trang chính
+ * Xử lý các route cho trang chủ và các trang tĩnh như About, Contact, Search.
  */
 
 const express = require('express');
 const router = express.Router();
 const { Product, Category, ContactMessage, Subscription } = require('../models/cac_model');
 
-// Trang chủ
+// Trang chủ: lấy danh sách danh mục và sản phẩm nổi bật.
 router.get('/', async (req, res) => {
   try {
     const [categories, featuredProducts] = await Promise.all([
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Trang về chúng tôi
+// Trang About tĩnh.
 router.get('/about', (req, res) => {
   try {
     res.render('about', {
@@ -44,7 +44,7 @@ router.get('/about', (req, res) => {
   }
 });
 
-// Trang liên hệ
+// Trang Liên hệ tĩnh.
 router.get('/contact', (req, res) => {
   try {
     res.render('contact', {
@@ -58,7 +58,7 @@ router.get('/contact', (req, res) => {
   }
 });
 
-// Xử lý form liên hệ
+// Xử lý gửi tin nhắn liên hệ từ form.
 router.post('/contact', async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
@@ -77,7 +77,7 @@ router.post('/contact', async (req, res) => {
   }
 });
 
-// Tìm kiếm sản phẩm
+// Tìm kiếm sản phẩm theo tên, mô tả hoặc tags.
 router.get('/search', async (req, res) => {
   try {
     const q = (req.query.q || '').trim();
@@ -106,7 +106,7 @@ router.get('/search', async (req, res) => {
   }
 });
 
-// Đăng ký newsletter
+// Đăng ký nhận bản tin (newsletter).
 router.post('/subscribe', async (req, res) => {
   try {
     const { email } = req.body;

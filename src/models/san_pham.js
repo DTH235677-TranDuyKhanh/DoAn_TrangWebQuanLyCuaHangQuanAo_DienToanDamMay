@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+// Schema sản phẩm định nghĩa dữ liệu của một sản phẩm trong kho.
 const ProductSchema = new Schema({
   name: { type: String, required: true, trim: true },
   slug: { type: String, required: true, trim: true, unique: true },
@@ -20,6 +21,7 @@ const ProductSchema = new Schema({
   updatedAt: { type: Date, default: Date.now }
 });
 
+// Tự động cập nhật trường updatedAt khi lưu sản phẩm.
 ProductSchema.pre('save', function () {
   this.updatedAt = Date.now();
 });

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+// Schema item của đơn hàng: sản phẩm, số lượng, giá và thuộc tính lựa chọn.
 const OrderItemSchema = new Schema({
   product: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
   name: { type: String, required: true, trim: true },
@@ -10,6 +11,7 @@ const OrderItemSchema = new Schema({
   color: { type: String, trim: true }
 });
 
+// Schema đơn hàng chứa thông tin user, giỏ hàng và vận chuyển.
 const OrderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   items: [OrderItemSchema],

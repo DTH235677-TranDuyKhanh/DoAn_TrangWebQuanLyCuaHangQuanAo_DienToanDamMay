@@ -3,7 +3,7 @@ const router = express.Router();
 const { Category } = require('../models/cac_model');
 const { ensureManagerApi } = require('../utils/auth');
 
-// Danh sách danh mục
+// Hiển thị danh sách danh mục cho người dùng.
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.find().lean();
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// API CRUD danh mục
+// API CRUD danh mục dùng cho quản trị hoặc tích hợp hệ thống.
 router.get('/api', async (req, res) => {
   try {
     const categories = await Category.find().lean();

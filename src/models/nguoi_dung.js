@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+// Schema người dùng lưu thông tin đăng nhập và hồ sơ.
 const UserSchema = new Schema({
   name: { type: String, required: true, trim: true },
   email: { type: String, required: true, unique: true, lowercase: true, trim: true },
@@ -20,6 +21,7 @@ const UserSchema = new Schema({
   updatedAt: { type: Date, default: Date.now }
 });
 
+// Cập nhật thời gian sửa mỗi lần save.
 UserSchema.pre('save', function () {
   this.updatedAt = Date.now();
 });

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View Danh mục: danh sách toàn bộ danh mục sản phẩm. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -19,9 +19,11 @@
         <p class="page-copy">Khám phá các danh mục nổi bật để tìm phong cách phù hợp với bạn.</p>
         <div class="cards-grid">
             <% if (categories && categories.length) { %>
+                <!-- Nếu có danh mục, duyệt từng danh mục và hiển thị card -->
                 <% categories.forEach(function(category) { %>
                     <article class="card-tile">
                         <% if (category.image) { %>
+                            <!-- Hiển thị ảnh danh mục, nếu lỗi thì dùng ảnh dự phòng -->
                             <img src="<%= category.image %>" alt="<%= category.name %>" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x600?text=No+Image'">
                         <% } else { %>
                             <img src="https://via.placeholder.com/600x600?text=No+Image" alt="Không có ảnh">
@@ -35,9 +37,9 @@
                     </article>
                 <% }); %>
             <% } else { %>
-                <div class="alert">Chưa có danh mục nào để hiển thị.</div>
-            <% } %>
-        </div>
+                    <!-- Thông báo khi không có danh mục nào được trả về từ server -->
+                    <div class="alert">Chưa có danh mục nào để hiển thị.</div>
+                <% } %>
     </section>
 
     <%- include('chan_trang') %>

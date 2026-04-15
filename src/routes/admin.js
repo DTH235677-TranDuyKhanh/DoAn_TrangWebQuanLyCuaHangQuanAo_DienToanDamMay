@@ -1,8 +1,10 @@
+// Router quản trị: các trang admin quản lý sản phẩm và danh mục.
 const express = require('express');
 const router = express.Router();
 const { Product, Category } = require('../models/cac_model');
 const { ensureManager } = require('../utils/auth');
 
+// Chuyển chuỗi phân tách dấu phẩy thành mảng giá trị.
 const formatList = (value) => {
   if (Array.isArray(value)) return value.filter(Boolean);
   if (typeof value !== 'string') return [];
@@ -12,6 +14,7 @@ const formatList = (value) => {
     .filter(Boolean);
 };
 
+// Tạo slug từ tên hoặc tiêu đề để dùng trong URL.
 const createSlug = (text) => {
   if (!text) return '';
   return text
@@ -22,8 +25,10 @@ const createSlug = (text) => {
     .replace(/^-+|-+$/g, '');
 };
 
+// Bảo vệ toàn bộ route admin.
 router.use(ensureManager);
 
+// Dashboard admin: hiển thị tổng số sản phẩm và danh mục.
 router.get('/', async (req, res) => {
   try {
     const productCount = await Product.countDocuments();
@@ -77,6 +82,7 @@ router.get('/products/new', async (req, res) => {
   }
 });
 
+// Tạo sản phẩm mới từ dữ liệu form.
 router.post('/products', async (req, res) => {
   try {
     const product = {
@@ -131,6 +137,7 @@ router.get('/products/:id/edit', async (req, res) => {
   }
 });
 
+// Cập nhật sản phẩm đã tồn tại.
 router.post('/products/:id/edit', async (req, res) => {
   try {
     const updates = {
@@ -223,6 +230,7 @@ router.get('/categories/new', async (req, res) => {
   }
 });
 
+// Tạo danh mục mới.
 router.post('/categories', async (req, res) => {
   try {
     const category = {

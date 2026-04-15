@@ -1,3 +1,4 @@
+// Router xử lý người dùng, đăng nhập, đăng ký và Google OAuth.
 const express = require('express');
 const https = require('https');
 const querystring = require('querystring');
@@ -10,12 +11,13 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || 'YOUR_GOOGLE_CL
 const GOOGLE_CALLBACK_URL = process.env.GOOGLE_CALLBACK_URL || 'https://doan-trangwebquanlycuahangquanao.onrender.com/nguoi-dung/dang-nhap/google/callback';
 const GOOGLE_SCOPE = ['openid', 'email', 'profile'].join(' ');
 
-console.log('Google OAuth config:', {   
+console.log('Google OAuth config:', {
   clientId: GOOGLE_CLIENT_ID,
   clientSecretSet: GOOGLE_CLIENT_SECRET !== 'YOUR_GOOGLE_CLIENT_SECRET',
   callbackUrl: GOOGLE_CALLBACK_URL
 });
 
+// Helper: gửi form URL encoded tới một endpoint HTTPS.
 function postForm(host, path, data) {
   const payload = querystring.stringify(data);
 
@@ -48,6 +50,7 @@ function postForm(host, path, data) {
   });
 }
 
+// Helper: lấy JSON từ một URL có authorization header.
 function getJson(url, token) {
   return new Promise((resolve, reject) => {
     const options = {
@@ -70,6 +73,7 @@ function getJson(url, token) {
   });
 }
 
+// Tạo URL chuyển hướng Google OAuth.
 function buildGoogleAuthUrl() {
   const params = querystring.stringify({
     client_id: GOOGLE_CLIENT_ID,
@@ -83,7 +87,7 @@ function buildGoogleAuthUrl() {
   return `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
 }
 
-// Trang đăng nhập
+// Render trang đăng nhập và kiểm tra phiên nếu đã đăng nhập.
 router.get('/dang-nhap', (req, res) => {
   try {
     if (req.session.user) {
@@ -101,7 +105,7 @@ router.get('/dang-nhap', (req, res) => {
   }
 });
 
-// Chuyển hướng sang Google để đăng nhập
+// Chuyển hướng người dùng tới Google để xác thực OAuth.
 router.get('/dang-nhap/google', (req, res) => {
   if (!GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID.startsWith('YOUR_') || !GOOGLE_CLIENT_SECRET || GOOGLE_CLIENT_SECRET.startsWith('YOUR_')) {
     req.session.error = 'Google OAuth chưa cấu hình. Vui lòng thiết lập GOOGLE_CLIENT_ID và GOOGLE_CLIENT_SECRET.';
@@ -110,6 +114,7 @@ router.get('/dang-nhap/google', (req, res) => {
   res.redirect(buildGoogleAuthUrl());
 });
 
+// Callback Google OAuth: xử lý mã xác thực và lấy thông tin người dùng.
 router.get('/dang-nhap/google/callback', async (req, res) => {
   const code = req.query.code;
   if (!code) {
@@ -168,7 +173,7 @@ router.get('/dang-nhap/google/callback', async (req, res) => {
   }
 });
 
-// Xử lý đăng nhập
+// Xử lý đăng nhập bằng email và mật khẩu.
 router.post('/dang-nhap', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -199,7 +204,7 @@ router.post('/dang-nhap', async (req, res) => {
   }
 });
 
-// Trang đăng ký
+// Trang đăng ký tài khoản.
 router.get('/dang-ky', (req, res) => {
   try {
     if (req.session.user) {
@@ -217,7 +222,7 @@ router.get('/dang-ky', (req, res) => {
   }
 });
 
-// Xử lý đăng ký
+// Xử lý đăng ký, tạo user mới và lưu session.
 router.post('/dang-ky', async (req, res) => {
   try {
     const { email, password, name } = req.body;
@@ -248,7 +253,7 @@ router.post('/dang-ky', async (req, res) => {
   }
 });
 
-// Đăng xuất
+// Đăng xuất: xóa session và cookie.
 router.get('/dang-xuat', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -262,7 +267,7 @@ router.get('/dang-xuat', (req, res) => {
   });
 });
 
-// API CRUD người dùng
+// API CRUD người dùng (fetch, update, delete).
 router.get('/api', async (req, res) => {
   try {
     const users = await User.find().lean();
@@ -311,7 +316,7 @@ router.delete('/api/:id', async (req, res) => {
   }
 });
 
-// Trang hồ sơ người dùng
+// Trang thông tin tài khoản - hiển thị thông tin hiện tại.
 router.get('/tai-khoan', async (req, res) => {
   try {
     if (!req.session.user) {
@@ -333,6 +338,7 @@ router.get('/tai-khoan', async (req, res) => {
   }
 });
 
+// Cập nhật thông tin hồ sơ người dùng.
 router.post('/tai-khoan', async (req, res) => {
   try {
     if (!req.session.user) {

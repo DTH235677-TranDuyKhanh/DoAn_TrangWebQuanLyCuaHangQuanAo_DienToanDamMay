@@ -1,8 +1,9 @@
+// Router liên hệ: hiển thị trang contact và lưu message/subscription.
 const express = require('express');
 const router = express.Router();
 const { ContactMessage, Subscription } = require('../models/cac_model');
 
-// Trang liên hệ
+// Render trang liên hệ.
 router.get('/', (req, res) => {
   try {
     res.render('lien_he', {
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
   }
 });
 
-// Gửi liên hệ
+// Nhận data liên hệ từ form và lưu vào database.
 router.post('/', async (req, res) => {
   try {
     const contact = await ContactMessage.create(req.body);
@@ -26,7 +27,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Đăng ký nhận tin
+// Nhận email đăng ký nhận tin và lưu vào subscription.
 router.post('/dang-ky-nhan-tin', async (req, res) => {
   try {
     const { email } = req.body;
@@ -37,7 +38,7 @@ router.post('/dang-ky-nhan-tin', async (req, res) => {
   }
 });
 
-// API CRUD tin nhắn liên hệ
+// API CRUD tin nhắn liên hệ.
 router.get('/api', async (req, res) => {
   try {
     const messages = await ContactMessage.find().lean();

@@ -10,6 +10,8 @@ const donHangRouter = require('./don_hang');
 const lienHeRouter = require('./lien_he');
 const adminRouter = require('./admin');
 
+// Mount các cụm route chính của ứng dụng.
+// Các route con sẽ tiếp tục định nghĩa các URL riêng biệt.
 router.use('/', trangChuRouter);
 router.use('/san-pham', sanPhamRouter);
 router.use('/danh-muc', danhMucRouter);

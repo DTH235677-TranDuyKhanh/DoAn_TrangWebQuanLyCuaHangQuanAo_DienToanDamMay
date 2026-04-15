@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View Đăng ký: hiển thị form tạo tài khoản mới cho khách hàng. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -33,8 +33,10 @@
                     <h2 class="panel-heading">Tạo tài khoản</h2>
                     <p class="page-copy">Điền thông tin bên dưới để bắt đầu hành trình mua sắm của bạn.</p>
                     <% if (message) { %>
+                        <!-- Hiển thị thông báo lỗi hợp lệ khi đăng ký không thành công -->
                         <div class="alert"><%- message %></div>
                     <% } %>
+                    <!-- Form đăng ký gửi dữ liệu về route /nguoi-dung/dang-ky -->
                     <form action="/nguoi-dung/dang-ky" method="post">
                         <div class="form-group">
                             <label for="name">Họ tên</label>
@@ -52,6 +54,7 @@
                             <button type="submit" class="button-primary">Đăng ký</button>
                         </div>
                     </form>
+                    <!-- Liên kết chuyển sang trang đăng nhập nếu người dùng đã có tài khoản -->
                     <div class="form-actions">
                         <a href="/nguoi-dung/dang-nhap" class="button-secondary">Đăng nhập nếu đã có</a>
                     </div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View chi tiết sản phẩm: hiển thị thông tin một sản phẩm cụ thể. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -17,10 +17,13 @@
     <section class="page-section">
         <div class="product-card">
             <div class="product-gallery">
+                <!-- Ảnh chính của sản phẩm. Nếu không có ảnh, dùng ảnh mặc định thay thế. -->
                 <img src="<%= (product.images && product.images[0]) || 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900&h=1200&fit=crop' %>" alt="<%= product ? product.name : 'Sản phẩm' %>" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x600?text=No+Image'">
                 <div class="product-preview">
+                    <!-- Lặp qua các ảnh phụ để hiển thị thumbnail. -->
                     <% if (product && product.images) { %>
                         <% product.images.slice(1, 4).forEach(function(image) { %>
+                            <!-- Ảnh preview nhỏ trong gallery. -->
                             <img src="<%= image %>" alt="Preview" onerror="this.onerror=null;this.src='https://via.placeholder.com/200x200?text=No+Image'">
                         <% }); %>
                     <% } %>
@@ -31,6 +34,7 @@
                 <div class="product-price"><%= product && product.salePrice ? product.salePrice.toLocaleString() + ' ₫' : (product && product.price ? product.price.toLocaleString() + ' ₫' : 'Liên hệ') %></div>
                 <p class="product-description"><%= product ? (product.description || 'Mô tả chi tiết sản phẩm sẽ được cập nhật sớm.') : 'Không có thông tin sản phẩm.' %></p>
                 <div class="tag-list">
+                    <!-- Hiển thị các kích thước khả dụng. -->
                     <% if (product && product.sizes) { %>
                         <% product.sizes.forEach(function(size) { %>
                             <span class="tag-pill"><%= size %></span>
@@ -44,6 +48,7 @@
                         <% }); %>
                     <% } %>
                 </div>
+                <!-- Form thêm sản phẩm vào giỏ hàng. Giá trị productId được gửi dưới dạng hidden input. -->
                 <form action="/don-hang/gio-hang/them" method="post">
                     <input type="hidden" name="productId" value="<%= product._id %>">
                     <div class="form-group">

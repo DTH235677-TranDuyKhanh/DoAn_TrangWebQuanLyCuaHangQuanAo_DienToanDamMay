@@ -1,11 +1,14 @@
+// Router giỏ hàng và đơn hàng: lưu session, thêm sản phẩm, thanh toán và API đơn hàng.
 const express = require('express');
 const router = express.Router();
 const { Order, Product } = require('../models/cac_model');
 
+// Lấy giỏ hàng từ session. Nếu chưa tồn tại, khởi tạo giá trị mặc định.
 function getCart(req) {
   return req.session.cart || { items: [], totalPrice: 0 };
 }
 
+// Tính tổng tiền của giỏ hàng và cập nhật tổng giá trị mỗi item.
 function calculateCart(cart) {
   let totalPrice = 0;
   cart.items.forEach((item) => {
@@ -15,7 +18,7 @@ function calculateCart(cart) {
   cart.totalPrice = totalPrice;
 }
 
-// Giỏ hàng
+// Hiển thị trang giỏ hàng.
 router.get('/gio-hang', async (req, res) => {
   try {
     const cart = getCart(req);
@@ -33,7 +36,7 @@ router.get('/gio-hang', async (req, res) => {
   }
 });
 
-// Thêm sản phẩm vào giỏ hàng
+// Thêm sản phẩm vào giỏ hàng và lưu lại trong session.
 router.post('/gio-hang/them', async (req, res) => {
   try {
     const { productId, quantity = 1, size, color } = req.body;
@@ -71,7 +74,7 @@ router.post('/gio-hang/them', async (req, res) => {
   }
 });
 
-// Thanh toán
+// Hiển thị trang thanh toán nếu giỏ hàng không trống.
 router.get('/thanh-toan', (req, res) => {
   try {
     const cart = getCart(req);
@@ -95,7 +98,7 @@ router.get('/thanh-toan', (req, res) => {
   }
 });
 
-// Xử lý đơn hàng
+// Xử lý thanh toán và lưu đơn hàng.
 router.post('/thanh-toan', async (req, res) => {
   try {
     const cart = getCart(req);
@@ -133,7 +136,7 @@ router.post('/thanh-toan', async (req, res) => {
   }
 });
 
-// API CRUD đơn hàng
+// API CRUD đơn hàng để quản lý dữ liệu.
 router.get('/api', async (req, res) => {
   try {
     const orders = await Order.find().populate('user items.product').lean();

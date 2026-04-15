@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View liên hệ: hiển thị form gửi tin nhắn và thông tin liên hệ. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -18,10 +18,12 @@
         <h1 class="page-title"><%= title %></h1>
         <p class="page-copy">Gửi thông tin liên hệ hoặc đăng ký nhận bản tin mới nhất.</p>
         <% if (message) { %>
+            <!-- Thông báo trả về khi gửi tin nhắn hoặc đăng ký nhận tin -->
             <div class="alert"><%- message %></div>
         <% } %>
         <div class="grid-2 contact-grid">
             <div class="form-card">
+                <!-- Form gửi tin nhắn liên hệ đến route /lien-he -->
                 <form action="/lien-he" method="post">
                     <div class="form-group">
                         <label for="name">Họ tên</label>

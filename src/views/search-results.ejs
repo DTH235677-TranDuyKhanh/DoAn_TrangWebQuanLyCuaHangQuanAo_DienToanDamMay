@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View kết quả tìm kiếm: hiển thị sản phẩm phù hợp với truy vấn tìm kiếm. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -19,6 +19,7 @@
         <p class="page-copy">Kết quả tìm kiếm cho: "<%= query || '' %>"</p>
         <div class="cards-grid">
             <% if (results && results.length) { %>
+                <!-- Hiển thị danh sách sản phẩm tìm kiếm được -->
                 <% results.forEach(function(item) { %>
                     <article class="card-tile">
                         <img src="<%= (item.images && item.images[0]) || 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900&h=1200&fit=crop' %>" alt="<%= item.name || item.title %>" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x600?text=No+Image'">
@@ -31,6 +32,7 @@
                     </article>
                 <% }); %>
             <% } else { %>
+                <!-- Thông báo khi không có sản phẩm nào phù hợp với từ khóa tìm kiếm -->
                 <div class="alert">Không tìm thấy kết quả nào phù hợp.</div>
             <% } %>
         </div>

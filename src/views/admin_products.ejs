@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View quản lý sản phẩm: hiển thị danh sách sản phẩm trong admin. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -21,6 +21,7 @@
         </div>
         <div class="panel">
             <div class="panel-body">
+                <!-- Bảng danh sách sản phẩm admin cho phép sửa và xóa nhanh -->
                 <table class="table">
                     <thead>
                         <tr>
@@ -44,6 +45,7 @@
                                 <td><%= product.price.toLocaleString() %> ₫</td>
                                 <td><%= product.isActive ? 'Đang hiển thị' : 'Ẩn' %></td>
                                 <td>
+                                    <!-- Nút sửa và xóa được hiển thị với mỗi sản phẩm -->
                                     <a href="/admin/products/<%= product._id %>/edit" class="button-secondary">Sửa</a>
                                     <form action="/admin/products/<%= product._id %>/delete" method="post" style="display:inline-block; margin-left: 8px;">
                                         <button type="submit" class="button-secondary">Xóa</button>

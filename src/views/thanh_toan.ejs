@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View Thanh toán: tạo đơn hàng và thu thông tin giao hàng. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -23,6 +23,7 @@
                     <span class="info-badge">Thanh toán an toàn</span>
                     <h2 class="panel-heading">Thông tin giao hàng</h2>
                     <p class="page-copy">Điền chính xác thông tin giao hàng để đơn đặt nhanh chóng đến tay bạn.</p>
+                    <!-- Form thanh toán gửi data giao hàng và phương thức thanh toán lên server. -->
                     <form action="/don-hang/thanh-toan" method="post">
                         <div class="form-section">
                             <h3>Chi tiết khách hàng</h3>
@@ -50,6 +51,7 @@
                             <h3>Phương thức thanh toán</h3>
                             <div class="form-group">
                                 <label for="paymentMethod">Chọn phương thức</label>
+                                <!-- Người dùng chọn phương thức thanh toán phù hợp. -->
                                 <select id="paymentMethod" name="paymentMethod" required>
                                     <option value="COD">Thanh toán khi nhận hàng</option>
                                     <option value="CreditCard">Thẻ tín dụng</option>
@@ -66,6 +68,7 @@
             <div class="panel summary-card">
                 <div class="panel-body">
                     <h2 class="panel-heading">Tóm tắt đơn hàng</h2>
+                    <!-- Hiển thị tổng đơn hàng và phí vận chuyển. -->
                     <% if (cart && cart.items.length) { %>
                         <ul class="list-unstyled">
                             <% cart.items.forEach(function(item) { %>
@@ -76,6 +79,7 @@
                         <div class="summary-row"><span>Phí vận chuyển</span><strong>50.000 ₫</strong></div>
                         <div class="summary-row summary-total"><span>Tổng thanh toán</span><strong><%= (cart.totalPrice + 50000).toLocaleString() %> ₫</strong></div>
                     <% } else { %>
+                        <!-- Nếu giỏ hàng trống thì không thể thanh toán, hiển thị cảnh báo. -->
                         <div class="alert">Giỏ hàng của bạn đang trống.</div>
                     <% } %>
                 </div>

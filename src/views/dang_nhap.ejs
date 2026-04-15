@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View Đăng nhập: hiển thị form đăng nhập người dùng. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -33,8 +33,10 @@
                     <h2 class="panel-heading">Đăng nhập</h2>
                     <p class="page-copy">Sử dụng email và mật khẩu của bạn để truy cập tài khoản.</p>
                     <% if (message) { %>
+                        <!-- Nếu có thông báo lỗi hoặc thông tin từ server, hiển thị ở đây -->
                         <div class="alert"><%- message %></div>
                     <% } %>
+                    <!-- Form đăng nhập gửi về route /nguoi-dung/dang-nhap -->
                     <form action="/nguoi-dung/dang-nhap" method="post">
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -48,6 +50,7 @@
                             <button type="submit" class="button-primary">Đăng nhập</button>
                         </div>
                     </form>
+                    <!-- Nút đăng nhập bằng Google sẽ chuyển đến route OAuth của ứng dụng -->
                     <div class="form-actions" style="margin-top: 16px;">
                         <a href="/nguoi-dung/dang-nhap/google" class="button-secondary" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
                             <i class="bi bi-google"></i> Đăng nhập bằng Gmail

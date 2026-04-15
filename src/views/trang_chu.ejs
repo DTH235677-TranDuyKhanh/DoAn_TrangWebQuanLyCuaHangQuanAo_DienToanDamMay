@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<!-- View trang chủ: hiển thị banner, sản phẩm nổi bật và danh mục chính. -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,6 +16,7 @@
     <%- include('thanh_menu') %>
 
     <section class="hero">
+        <!-- Phần banner chính trang chủ với hình ảnh và CTA hướng đến danh mục sản phẩm -->
         <div class="hero-left">
             <img src="https://danviet.ex-cdn.com/files/f1/thumb_w/650/296231569849192448/2023/4/17/allen-tsai-levi-501-fall-2008-winter-2009-2-1681703387075-16817033879551827423733.jpg" alt="Levi's hero left" style="width: 100%">
             <div class="hero-gradient"></div>
@@ -102,6 +104,7 @@
                 <h3 class="newsletter-title">Stay in the Loop</h3>
                 <p class="newsletter-text">Subscribe for new drops, exclusive deals, and styling tips delivered straight to your inbox.</p>
             </div>
+            <!-- Form đăng ký nhận bản tin từ trang chủ, gửi về route /subscribe -->
             <form class="newsletter-form" action="/subscribe" method="post">
                 <input type="email" name="email" placeholder="Enter your email address" required>
                 <button type="submit">Subscribe</button>

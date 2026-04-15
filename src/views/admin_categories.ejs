@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View quản lý danh mục: hiển thị danh sách danh mục trong admin. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -33,6 +33,7 @@
                     </thead>
                     <tbody>
                         <% if (categories.length === 0) { %>
+                            <!-- Nếu chưa có danh mục nào, hiển thị thông báo trống -->
                             <tr>
                                 <td colspan="4">Chưa có danh mục nào.</td>
                             </tr>
@@ -41,6 +42,7 @@
                             <tr>
                                 <td>
                                     <% if (category.image) { %>
+                                        <!-- Ảnh danh mục nếu có, dùng placeholder khi load lỗi -->
                                         <img src="<%= category.image %>" alt="<%= category.name %>" style="max-width: 80px; height: auto;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80x80?text=No+Image'">
                                     <% } else { %>
                                         -

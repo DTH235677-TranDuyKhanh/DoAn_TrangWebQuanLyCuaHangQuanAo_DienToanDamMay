@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- View Thông tin người dùng: hiển thị và cập nhật hồ sơ tài khoản. --><!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -20,6 +20,7 @@
         <div class="grid-2 account-grid">
             <div class="panel profile-panel">
                 <div class="panel-body">
+                    <!-- Hiển thị thông tin tài khoản hiện tại của người dùng -->
                     <span class="info-badge">Hồ sơ cá nhân</span>
                     <h2 class="panel-heading">Xin chào, <%= user?.name || 'Khách hàng' %></h2>
                     <p class="page-copy">Thông tin tài khoản của bạn được bảo mật và dễ dàng cập nhật khi cần.</p>
@@ -35,6 +36,7 @@
                 <div class="panel-body">
                     <h2 class="panel-heading">Cập nhật thông tin</h2>
                     <p class="page-copy">Chỉnh sửa thông tin cá nhân và địa chỉ giao hàng để nhận đơn nhanh hơn.</p>
+                    <!-- Form cập nhật hồ sơ người dùng gửi dữ liệu đến /nguoi-dung/tai-khoan -->
                     <form action="/nguoi-dung/tai-khoan" method="post">
                         <div class="form-group">
                             <label for="name">Họ tên</label>
