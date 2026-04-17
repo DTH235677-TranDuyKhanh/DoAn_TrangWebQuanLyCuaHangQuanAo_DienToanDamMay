@@ -109,30 +109,24 @@ router.get('/search', async (req, res) => {
 // Đăng ký nhận bản tin (newsletter).
 router.post('/subscribe', async (req, res) => {
   try {
-    const { email } = req.body;
+    const email = (req.body.email || '').toLowerCase().trim();
     if (!email || !email.includes('@')) {
-      return res.status(400).json({
-        success: false,
-        message: 'Vui lòng nhập email hợp lệ'
-      });
+      req.session.error = 'Vui lòng nhập email hợp lệ.';
+      return res.redirect('/');
     }
 
     await Subscription.findOneAndUpdate(
-      { email: email.toLowerCase().trim() },
-      { email: email.toLowerCase().trim(), source: 'homepage', isActive: true },
+      { email },
+      { email, source: 'homepage', isActive: true },
       { upsert: true, new: true, setDefaultsOnInsert: true }
     );
 
-    res.json({
-      success: true,
-      message: 'Đã đăng ký nhận tin thành công!'
-    });
+    req.session.success = 'Đã đăng ký nhận tin thành công!';
+    res.redirect('/');
   } catch (error) {
     console.error(error);
-    res.status(500).json({
-      success: false,
-      message: 'Lỗi khi đăng ký'
-    });
+    req.session.error = 'Lỗi khi đăng ký nhận tin.';
+    res.redirect('/');
   }
 });
 

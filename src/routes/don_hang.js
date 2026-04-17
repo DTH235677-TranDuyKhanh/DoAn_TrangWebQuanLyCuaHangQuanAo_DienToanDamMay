@@ -115,9 +115,18 @@ router.post('/thanh-toan', async (req, res) => {
     }
 
     const { fullname, street, city, state, postalCode, country, phone, paymentMethod } = req.body;
+    const orderItems = cart.items.map((item) => ({
+      product: item.productId,
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+      size: item.size,
+      color: item.color
+    }));
+
     const order = await Order.create({
       user: req.session.user.id,
-      items: cart.items,
+      items: orderItems,
       shippingAddress: { fullname, street, city, state, postalCode, country, phone },
       paymentMethod,
       totalPrice: cart.totalPrice,
