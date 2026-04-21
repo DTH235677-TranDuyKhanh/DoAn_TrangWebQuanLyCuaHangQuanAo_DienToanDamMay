@@ -1,24 +1,40 @@
 {
+  // Cấu hình cho trình biên dịch TypeScript 
   "compilerOptions": {
+    // Phiên bản ECMAScript mục tiêu để biên dịch xuống 
     "target": "ES2023",
+    // Hệ thống module sử dụng 
     "module": "Node16",
+    // Cách giải quyết đường dẫn module
     "moduleResolution": "Node16",
+    // Cho phép xử lý file .js
     "allowJs": true,
+    // Không kiểm tra lỗi trong file .js 
     "checkJs": false,
+    // Tắt chế độ strict mode 
     "strict": false,
+    // Hỗ trợ tương tác với ES modules 
     "esModuleInterop": true,
+    // Cho phép import file .json 
     "resolveJsonModule": true,
+    // Bỏ qua kiểm tra thư viện 
     "skipLibCheck": true,
+    // Ép buộc tên file nhất quán về chữ hoa/thường
     "forceConsistentCasingInFileNames": true,
+    // Thư mục gốc của dự án
     "rootDir": ".",
+    // Bỏ qua cảnh báo deprecated từ phiên bản TypeScript
     "ignoreDeprecations": "6.0",
+    // Không tạo file output sau khi biên dịch 
     "noEmit": true
   },
+  // Danh sách file/pattern cần bao gồm khi kiểm tra 
   "include": [
-    "**/*.js",
-    "**/*.json"
+    "**/*.js",  // Bao gồm tất cả file .js
+    "**/*.json" // Bao gồm tất cả file .json
   ],
+  // Danh sách file/pattern cần loại trừ 
   "exclude": [
-    "node_modules"
+    "node_modules" // Loại trừ thư mục node_modules
   ]
 }

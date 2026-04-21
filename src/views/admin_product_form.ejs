@@ -34,7 +34,7 @@
                             <option value="">Chọn danh mục</option>
                             <% categories.forEach(function(category) { %>
                                 <!-- Duyệt danh sách danh mục và chọn đúng danh mục hiện tại nếu đang sửa -->
-                                <option value="<%= category._id %>" <%= product.category && String(product.category) === String(category._id) ? 'selected' : '' %>><%= category.name %></option>
+                            <option value="<%= category._id %>" <%= product.category && String(product.category) === String(category._id) ? 'selected' : '' %>><%= category.name %></option>
                             <% }); %>
                         </select>
                     </div>

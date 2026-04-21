@@ -31,7 +31,7 @@ npm install
 Tạo file `.env` trong thư mục gốc nếu chưa có. File `.env` cần chứa các biến sau:
 
 ```env
-MONGODB_URI=mongodb://...    # hoặc MongoDB Atlas URL
+
 PORT=3000
 SESSION_NAME=iNews
 SESSION_SECRET=MeoMeoMeoMeoMeoMeo
@@ -41,6 +41,7 @@ GOOGLE_CALLBACK_URL=https://your-domain/nguoi-dung/dang-nhap/google/callback
 ```
 
 ### Ghi chú:
+- 'Google OAuth 2.0 API': API đăng nhập bằng gmail.
 - `MONGODB_URI`: nếu không cấu hình, ứng dụng sẽ dùng MongoDB mặc định trong `index.js`.
 - `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`: cần để kích hoạt Google OAuth.
 - `GOOGLE_CALLBACK_URL`: URL callback đăng ký trong Google Cloud Console.
@@ -200,8 +201,4 @@ Thư mục `src/data` chứa các file JSON mẫu:
 
 - `src/routes/nguoi_dung.js` sử dụng password plain text. Trong môi trường thực tế, cần hash password trước khi lưu.
 - `session` được lưu trong server memory; với môi trường sản xuất nên dùng store riêng.
-- `GOOGLE_CLIENT_ID` và `GOOGLE_CLIENT_SECRET` phải được cung cấp nếu muốn bật đăng nhập Google.
-
----
-
-Nếu cần, tôi có thể giúp bạn viết thêm script seed để nhập dữ liệu mẫu trực tiếp từ `src/data/*.json`.
+- `GOOGLE_CLIENT_ID` và `GOOGLE_CLIENT_SECRET` phải được cung cấp nếu muốn bật đăng nhập -  Google.

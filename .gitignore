@@ -1,2 +1,5 @@
+# File chứa biến môi trường (nhạy cảm, không commit)
 .env
+
+# Thư mục chứa dependencies của Node.js (có thể tái tạo bằng npm install)
 node_modules/
