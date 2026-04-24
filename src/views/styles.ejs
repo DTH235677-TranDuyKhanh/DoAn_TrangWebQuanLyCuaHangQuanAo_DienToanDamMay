@@ -21,6 +21,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     color: var(--black);
     background: var(--bg);
+    overflow-x: hidden;
 }
 
 a {
@@ -111,6 +113,11 @@ button {
     gap: 30px;
     padding: 12px 30px;
     min-height: 56px;
+}
+
+.header-inner > *,
+.header-controls > * {
+    min-width: 0;
 }
 
 .brand-logo {
@@ -201,6 +208,7 @@ button {
     position: relative;
     max-width: 320px;
     width: 100%;
+    min-width: 0;
 }
 
 .search-box input {
@@ -1160,13 +1168,20 @@ footer {
     }
 
     .header-controls {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: 10px;
+        flex-wrap: nowrap;
     }
 
     .search-box {
-        width: 100%;
+        flex: 1 1 auto;
+        width: auto;
         max-width: none;
-        margin-top: 12px;
+        min-width: 0;
+        margin-top: 0;
     }
 
     .search-box input {
@@ -1177,6 +1192,7 @@ footer {
     .header-icon {
         width: 38px;
         height: 38px;
+        flex: 0 0 38px;
     }
 
     .cart-count {
@@ -1257,17 +1273,11 @@ footer {
     }
 
     .header-controls {
-        width: 100%;
         gap: 8px;
-        justify-content: space-between;
-        align-items: center;
     }
 
     .search-box {
-        order: 3;
-        width: 100%;
-        max-width: none;
-        margin-top: 8px;
+        flex-basis: auto;
     }
 
     .search-box input {
@@ -1281,6 +1291,7 @@ footer {
     .header-icon {
         width: 34px;
         height: 34px;
+        flex: 0 0 34px;
     }
 
     .cart-count {
@@ -1327,6 +1338,7 @@ footer {
     .page-copy,
     .section-subtitle {
         font-size: 13px;
+        line-height: 1.6;
         margin-bottom: 32px;
     }
 
@@ -1358,7 +1370,9 @@ footer {
     .section-title,
     .page-title {
         font-size: 22px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.06em;
+        line-height: 1.25;
+        overflow-wrap: anywhere;
         margin-bottom: 14px;
     }
 
@@ -1368,6 +1382,36 @@ footer {
 
     .card-tile img {
         height: 320px;
+    }
+
+    .contact-grid {
+        gap: 20px;
+    }
+
+    .contact-page .form-card,
+    .contact-page .panel {
+        border-radius: 20px;
+    }
+
+    .contact-page .panel-body,
+    .contact-page .form-card .panel-body {
+        padding: 24px 18px;
+    }
+
+    .contact-page .form-group input,
+    .contact-page .form-group textarea,
+    .contact-page .form-group select {
+        padding: 14px 16px;
+    }
+
+    .form-actions {
+        justify-content: stretch;
+    }
+
+    .form-actions .button-primary,
+    .form-actions .button-secondary {
+        width: 100%;
+        min-width: 0;
     }
 }
 </style>
