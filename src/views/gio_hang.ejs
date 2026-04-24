@@ -28,10 +28,11 @@
                                 <th>Giá</th>
                                 <th>Số lượng</th>
                                 <th>Tổng</th>
+                                <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <% cart.items.forEach(function(item) { %>
+                            <% cart.items.forEach(function(item, index) { %>
                                 <tr>
                                     <td>
                                         <strong><%= item.name %></strong>
@@ -42,6 +43,11 @@
                                     <td><%= item.price.toLocaleString() %> ₫</td>
                                     <td><%= item.quantity %></td>
                                     <td><%= (item.total || item.price * item.quantity).toLocaleString() %> ₫</td>
+                                    <td>
+                                        <a href="/don-hang/gio-hang/xoa/<%= index %>" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">
+                                            <i class="bi bi-trash"></i> Xóa
+                                        </a>
+                                    </td>
                                 </tr>
                             <% }); %>
                         </tbody>

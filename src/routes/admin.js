@@ -1,10 +1,20 @@
-// Router quản trị: các trang admin quản lý sản phẩm và danh mục.
+/**
+ * Router Quản Trị: Quản lý sản phẩm, danh mục và các công cụ admin
+ * Tất cả route trong file này được bảo vệ bởi middleware ensureManager
+ */
+
 const express = require('express');
 const router = express.Router();
 const { Product, Category } = require('../models/cac_model');
 const { ensureManager } = require('../utils/auth');
 
-// Chuyển chuỗi phân tách dấu phẩy thành mảng giá trị.
+/**
+ * Helper: Chuyển chuỗi phân tách dấu phẩy thành mảng giá trị
+ * @param {string|array} value - Giá trị input
+ * @returns {array} Mảng các giá trị đã được trim
+ * @example
+ * formatList("item1, item2, item3") => ["item1", "item2", "item3"]
+ */
 const formatList = (value) => {
   if (Array.isArray(value)) return value.filter(Boolean);
   if (typeof value !== 'string') return [];
@@ -14,7 +24,14 @@ const formatList = (value) => {
     .filter(Boolean);
 };
 
-// Tạo slug từ tên hoặc tiêu đề để dùng trong URL.
+/**
+ * Helper: Tạo slug từ tên để dùng trong URL
+ * Chuyển thành lowercase, xóa ký tự đặc biệt, thay thế bằng dấu gạch
+ * @param {string} text - Text input
+ * @returns {string} Slug format
+ * @example
+ * createSlug("Áo Thun Trắng") => "ao-thun-trang"
+ */
 const createSlug = (text) => {
   if (!text) return '';
   return text
@@ -25,10 +42,16 @@ const createSlug = (text) => {
     .replace(/^-+|-+$/g, '');
 };
 
-// Bảo vệ toàn bộ route admin.
+/**
+ * Middleware: Bảo vệ toàn bộ route admin
+ * Chỉ người dùng có role manager/admin mới có thể truy cập
+ */
 router.use(ensureManager);
 
-// Dashboard admin: hiển thị tổng số sản phẩm và danh mục.
+/**
+ * ROUTE: GET /admin
+ * Dashboard admin: Hiển thị thống kê số sản phẩm và danh mục
+ */
 router.get('/', async (req, res) => {
   try {
     const productCount = await Product.countDocuments();
@@ -47,7 +70,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Products
+// =====================
+// QUẢN LÝ SẢN PHẨM
+// =====================
+
+/**
+ * ROUTE: GET /admin/products
+ * Hiển thị danh sách tất cả sản phẩm
+ */
 router.get('/products', async (req, res) => {
   try {
     const products = await Product.find().populate('category').lean();
@@ -64,6 +94,10 @@ router.get('/products', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: GET /admin/products/new
+ * Hiển thị form thêm sản phẩm mới
+ */
 router.get('/products/new', async (req, res) => {
   try {
     const categories = await Category.find().lean();
@@ -82,7 +116,26 @@ router.get('/products/new', async (req, res) => {
   }
 });
 
-// Tạo sản phẩm mới từ dữ liệu form.
+/**
+ * ROUTE: POST /admin/products
+ * Tạo sản phẩm mới từ dữ liệu form
+ * 
+ * Body Parameters:
+ * - name (string): Tên sản phẩm
+ * - slug (string): URL slug (auto-generate nếu không có)
+ * - description (string): Mô tả chi tiết
+ * - price (number): Giá gốc
+ * - salePrice (number): Giá bán (có thể thấp hơn giá gốc)
+ * - category (string): ID danh mục
+ * - brand (string): Thương hiệu
+ * - images (string): URL hình ảnh (phân tách bằng dấu phẩy)
+ * - sizes (string): Danh sách size (phân tách bằng dấu phẩy)
+ * - colors (string): Danh sách màu (phân tách bằng dấu phẩy)
+ * - stock (number): Số lượng tồn kho
+ * - featured (checkbox): Sản phẩm nổi bật
+ * - tags (string): Tags (phân tách bằng dấu phẩy)
+ * - isActive (checkbox): Trạng thái hoạt động
+ */
 router.post('/products', async (req, res) => {
   try {
     const product = {
@@ -112,6 +165,13 @@ router.post('/products', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: GET /admin/products/:id/edit
+ * Hiển thị form chỉnh sửa sản phẩm
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của sản phẩm
+ */
 router.get('/products/:id/edit', async (req, res) => {
   try {
     const product = await Product.findById(req.params.id).lean();
@@ -137,7 +197,15 @@ router.get('/products/:id/edit', async (req, res) => {
   }
 });
 
-// Cập nhật sản phẩm đã tồn tại.
+/**
+ * ROUTE: POST /admin/products/:id/edit
+ * Cập nhật sản phẩm đã tồn tại
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của sản phẩm
+ * 
+ * Body: Các field muốn cập nhật (tương tự POST /admin/products)
+ */
 router.post('/products/:id/edit', async (req, res) => {
   try {
     const updates = {
@@ -178,6 +246,13 @@ router.post('/products/:id/edit', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: POST /admin/products/:id/delete
+ * Xóa sản phẩm khỏi database
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của sản phẩm
+ */
 router.post('/products/:id/delete', async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
@@ -195,7 +270,14 @@ router.post('/products/:id/delete', async (req, res) => {
   }
 });
 
-// Categories
+// =====================
+// QUẢN LÝ DANH MỤC
+// =====================
+
+/**
+ * ROUTE: GET /admin/categories
+ * Hiển thị danh sách tất cả danh mục
+ */
 router.get('/categories', async (req, res) => {
   try {
     const categories = await Category.find().lean();
@@ -212,6 +294,10 @@ router.get('/categories', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: GET /admin/categories/new
+ * Hiển thị form thêm danh mục mới
+ */
 router.get('/categories/new', async (req, res) => {
   try {
     const categories = await Category.find().lean();
@@ -230,7 +316,17 @@ router.get('/categories/new', async (req, res) => {
   }
 });
 
-// Tạo danh mục mới.
+/**
+ * ROUTE: POST /admin/categories
+ * Tạo danh mục mới từ dữ liệu form
+ * 
+ * Body Parameters:
+ * - name (string): Tên danh mục
+ * - slug (string): URL slug (auto-generate nếu không có)
+ * - description (string): Mô tả
+ * - parent (string): ID danh mục cha (nếu là danh mục con)
+ * - isActive (checkbox): Trạng thái hoạt động
+ */
 router.post('/categories', async (req, res) => {
   try {
     const category = {
@@ -251,6 +347,13 @@ router.post('/categories', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: GET /admin/categories/:id/edit
+ * Hiển thị form chỉnh sửa danh mục
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của danh mục
+ */
 router.get('/categories/:id/edit', async (req, res) => {
   try {
     const category = await Category.findById(req.params.id).lean();
@@ -276,6 +379,15 @@ router.get('/categories/:id/edit', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: POST /admin/categories/:id/edit
+ * Cập nhật danh mục đã tồn tại
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của danh mục
+ * 
+ * Body: Các field muốn cập nhật (tương tự POST /admin/categories)
+ */
 router.post('/categories/:id/edit', async (req, res) => {
   try {
     const updates = {
@@ -307,6 +419,13 @@ router.post('/categories/:id/edit', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: POST /admin/categories/:id/delete
+ * Xóa danh mục khỏi database
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của danh mục
+ */
 router.post('/categories/:id/delete', async (req, res) => {
   try {
     const category = await Category.findByIdAndDelete(req.params.id);

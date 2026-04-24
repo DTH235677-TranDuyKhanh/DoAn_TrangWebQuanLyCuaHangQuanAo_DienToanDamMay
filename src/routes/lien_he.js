@@ -1,9 +1,15 @@
-// Router liên hệ: hiển thị trang contact và lưu message/subscription.
+/**
+ * Router Liên Hệ: Quản lý trang liên hệ, tin nhắn và đăng ký nhận tin
+ */
+
 const express = require('express');
 const router = express.Router();
 const { ContactMessage, Subscription } = require('../models/cac_model');
 
-// Render trang liên hệ.
+/**
+ * ROUTE: GET /lien-he
+ * Render trang liên hệ với form liên hệ
+ */
 router.get('/', (req, res) => {
   try {
     res.render('lien_he', {
@@ -17,7 +23,18 @@ router.get('/', (req, res) => {
   }
 });
 
-// Nhận data liên hệ từ form và lưu vào database.
+/**
+ * ROUTE: POST /lien-he
+ * Nhận dữ liệu liên hệ từ form và lưu vào database
+ * 
+ * Body Parameters:
+ * - name (string): Tên người gửi
+ * - email (string): Email người gửi
+ * - subject (string): Tiêu đề tin nhắn
+ * - message (string): Nội dung tin nhắn
+ * 
+ * Response: JSON object với tin nhắn liên hệ vừa được tạo
+ */
 router.post('/', async (req, res) => {
   try {
     const contact = await ContactMessage.create(req.body);
@@ -27,7 +44,15 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Nhận email đăng ký nhận tin và lưu vào subscription.
+/**
+ * ROUTE: POST /lien-he/dang-ky-nhan-tin
+ * Nhận email đăng ký nhận tin và lưu vào collection Subscription
+ * 
+ * Body Parameters:
+ * - email (string): Email cần đăng ký
+ * 
+ * Response: JSON object với đăng ký nhận tin vừa được tạo
+ */
 router.post('/dang-ky-nhan-tin', async (req, res) => {
   try {
     const { email } = req.body;
@@ -38,7 +63,16 @@ router.post('/dang-ky-nhan-tin', async (req, res) => {
   }
 });
 
-// API CRUD tin nhắn liên hệ.
+// =====================
+// API CRUD TIN NHẮN LIÊN HỆ
+// =====================
+
+/**
+ * ROUTE: GET /lien-he/api
+ * Lấy danh sách tất cả tin nhắn liên hệ
+ * 
+ * Response: JSON array của tất cả tin nhắn
+ */
 router.get('/api', async (req, res) => {
   try {
     const messages = await ContactMessage.find().lean();
@@ -48,6 +82,15 @@ router.get('/api', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: GET /lien-he/api/:id
+ * Lấy chi tiết một tin nhắn liên hệ theo ID
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của tin nhắn
+ * 
+ * Response: JSON object của tin nhắn
+ */
 router.get('/api/:id', async (req, res) => {
   try {
     const message = await ContactMessage.findById(req.params.id).lean();
@@ -60,6 +103,15 @@ router.get('/api/:id', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: DELETE /lien-he/api/:id
+ * Xóa tin nhắn liên hệ khỏi database
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của tin nhắn
+ * 
+ * Response: JSON object với message xác nhận xóa
+ */
 router.delete('/api/:id', async (req, res) => {
   try {
     const message = await ContactMessage.findByIdAndDelete(req.params.id);

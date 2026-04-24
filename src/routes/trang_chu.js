@@ -7,7 +7,16 @@ const express = require('express');
 const router = express.Router();
 const { Product, Category, ContactMessage, Subscription } = require('../models/cac_model');
 
-// Trang chủ: lấy danh sách danh mục và sản phẩm nổi bật.
+/**
+ * ROUTE: GET /
+ * Trang chủ: hiển thị danh mục và sản phẩm nổi bật
+ * 
+ * Logic:
+ * - Lấy tất cả danh mục hoạt động (isActive: true)
+ * - Lấy tối đa 8 sản phẩm nổi bật (featured: true, isActive: true)
+ * - Sử dụng Promise.all để lấy dữ liệu song song
+ * - Render view 'trang_chu' với danh sách danh mục và sản phẩm
+ */
 router.get('/', async (req, res) => {
   try {
     const [categories, featuredProducts] = await Promise.all([
@@ -30,7 +39,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Trang About tĩnh.
+/**
+ * ROUTE: GET /about
+ * Trang About tĩnh: hiển thị thông tin về cửa hàng
+ */
 router.get('/about', (req, res) => {
   try {
     res.render('about', {
@@ -44,7 +56,10 @@ router.get('/about', (req, res) => {
   }
 });
 
-// Trang Liên hệ tĩnh.
+/**
+ * ROUTE: GET /contact
+ * Trang Liên hệ tĩnh: hiển thị form liên hệ
+ */
 router.get('/contact', (req, res) => {
   try {
     res.render('contact', {
@@ -58,7 +73,21 @@ router.get('/contact', (req, res) => {
   }
 });
 
-// Xử lý gửi tin nhắn liên hệ từ form.
+/**
+ * ROUTE: POST /contact
+ * Xử lý gửi tin nhắn liên hệ từ form contact
+ * 
+ * Body Parameters:
+ * - name (string): Tên người gửi
+ * - email (string): Email người gửi
+ * - subject (string): Tiêu đề tin nhắn
+ * - message (string): Nội dung tin nhắn
+ * 
+ * Logic:
+ * - Kiểm tra các field bắt buộc
+ * - Lưu tin nhắn vào database (ContactMessage collection)
+ * - Chuyển hướng về trang contact với thông báo thành công
+ */
 router.post('/contact', async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
@@ -77,7 +106,18 @@ router.post('/contact', async (req, res) => {
   }
 });
 
-// Tìm kiếm sản phẩm theo tên, mô tả hoặc tags.
+/**
+ * ROUTE: GET /search
+ * Tìm kiếm sản phẩm theo từ khóa
+ * 
+ * Query Parameters:
+ * - q (string, optional): Từ khóa tìm kiếm (tìm trong name, description, tags)
+ * 
+ * Logic:
+ * - Nếu có q, tìm sản phẩm hoạt động (isActive: true) khớp với từ khóa (regex, case-insensitive)
+ * - Nếu không có q, trả về tất cả sản phẩm hoạt động
+ * - Render view 'search-results' với kết quả tìm kiếm
+ */
 router.get('/search', async (req, res) => {
   try {
     const q = (req.query.q || '').trim();
@@ -106,7 +146,18 @@ router.get('/search', async (req, res) => {
   }
 });
 
-// Đăng ký nhận bản tin (newsletter).
+/**
+ * ROUTE: POST /subscribe
+ * Đăng ký nhận bản tin (newsletter)
+ * 
+ * Body Parameters:
+ * - email (string): Email cần đăng ký
+ * 
+ * Logic:
+ * - Kiểm tra email hợp lệ (phải chứa @)
+ * - Tạo hoặc cập nhật document Subscription
+ * - Chuyển hướng về trang chủ với thông báo thành công
+ */
 router.post('/subscribe', async (req, res) => {
   try {
     const email = (req.body.email || '').toLowerCase().trim();

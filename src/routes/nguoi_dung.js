@@ -1,4 +1,7 @@
-// Router xử lý người dùng, đăng nhập, đăng ký và Google OAuth.
+/**
+ * Router Người Dùng: Xử lý đăng nhập, đăng ký, Google OAuth và quản lý tài khoản
+ */
+
 const express = require('express');
 const https = require('https');
 const querystring = require('querystring');
@@ -17,7 +20,13 @@ console.log('Google OAuth config:', {
   callbackUrl: GOOGLE_CALLBACK_URL
 });
 
-// Helper: gửi form URL encoded tới một endpoint HTTPS.
+/**
+ * Helper: Gửi form URL encoded tới một endpoint HTTPS
+ * @param {string} host - Tên host (ví dụ: "oauth2.googleapis.com")
+ * @param {string} path - Đường dẫn endpoint (ví dụ: "/token")
+ * @param {Object} data - Dữ liệu cần gửi
+ * @returns {Promise} Promise trả về JSON response từ server
+ */
 function postForm(host, path, data) {
   const payload = querystring.stringify(data);
 
@@ -50,7 +59,12 @@ function postForm(host, path, data) {
   });
 }
 
-// Helper: lấy JSON từ một URL có authorization header.
+/**
+ * Helper: Lấy JSON từ một URL có authorization header
+ * @param {string} url - URL cần gọi
+ * @param {string} token - Access token
+ * @returns {Promise} Promise trả về JSON response từ server
+ */
 function getJson(url, token) {
   return new Promise((resolve, reject) => {
     const options = {
@@ -73,7 +87,10 @@ function getJson(url, token) {
   });
 }
 
-// Tạo URL chuyển hướng Google OAuth.
+/**
+ * Helper: Tạo URL chuyển hướng Google OAuth
+ * @returns {string} URL để chuyển hướng người dùng tới Google login
+ */
 function buildGoogleAuthUrl() {
   const params = querystring.stringify({
     client_id: GOOGLE_CLIENT_ID,
@@ -87,7 +104,14 @@ function buildGoogleAuthUrl() {
   return `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
 }
 
-// Render trang đăng nhập và kiểm tra phiên nếu đã đăng nhập.
+/**
+ * ROUTE: GET /nguoi-dung/dang-nhap
+ * Hiển thị trang đăng nhập
+ * 
+ * Logic:
+ * - Nếu đã đăng nhập (có session.user), chuyển hướng tới trang tài khoản
+ * - Render view 'dang_nhap' để người dùng nhập email/password
+ */
 router.get('/dang-nhap', (req, res) => {
   try {
     if (req.session.user) {
@@ -105,7 +129,15 @@ router.get('/dang-nhap', (req, res) => {
   }
 });
 
-// Chuyển hướng người dùng tới Google để xác thực OAuth.
+/**
+ * ROUTE: GET /nguoi-dung/dang-nhap/google
+ * Chuyển hướng người dùng tới Google để xác thực OAuth
+ * 
+ * Logic:
+ * - Kiểm tra cấu hình Google OAuth có đầy đủ không
+ * - Nếu chưa cấu hình, thông báo lỗi
+ * - Nếu có, chuyển hướng tới Google login URL
+ */
 router.get('/dang-nhap/google', (req, res) => {
   if (!GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID.startsWith('YOUR_') || !GOOGLE_CLIENT_SECRET || GOOGLE_CLIENT_SECRET.startsWith('YOUR_')) {
     req.session.error = 'Google OAuth chưa cấu hình. Vui lòng thiết lập GOOGLE_CLIENT_ID và GOOGLE_CLIENT_SECRET.';
@@ -114,7 +146,17 @@ router.get('/dang-nhap/google', (req, res) => {
   res.redirect(buildGoogleAuthUrl());
 });
 
-// Callback Google OAuth: xử lý mã xác thực và lấy thông tin người dùng.
+/**
+ * ROUTE: GET /nguoi-dung/dang-nhap/google/callback
+ * Callback sau khi người dùng xác thực với Google
+ * 
+ * Logic:
+ * - Lấy authorization code từ Google
+ * - Đổi code lấy access token
+ * - Dùng access token lấy thông tin user từ Google
+ * - Tìm hoặc tạo user trong DB
+ * - Lưu thông tin vào session và chuyển hướng
+ */
 router.get('/dang-nhap/google/callback', async (req, res) => {
   const code = req.query.code;
   if (!code) {
@@ -173,7 +215,20 @@ router.get('/dang-nhap/google/callback', async (req, res) => {
   }
 });
 
-// Xử lý đăng nhập bằng email và mật khẩu.
+/**
+ * ROUTE: POST /nguoi-dung/dang-nhap
+ * Xử lý đăng nhập bằng email và mật khẩu
+ * 
+ * Body Parameters:
+ * - email (string): Email người dùng
+ * - password (string): Mật khẩu
+ * 
+ * Logic:
+ * - Kiểm tra email và password có được nhập không
+ * - Tìm user trong DB với email (lowercase trim) và password
+ * - Nếu không tìm thấy, thông báo lỗi
+ * - Nếu tìm thấy, lưu thông tin vào session
+ */
 router.post('/dang-nhap', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -204,7 +259,14 @@ router.post('/dang-nhap', async (req, res) => {
   }
 });
 
-// Trang đăng ký tài khoản.
+/**
+ * ROUTE: GET /nguoi-dung/dang-ky
+ * Hiển thị trang đăng ký tài khoản
+ * 
+ * Logic:
+ * - Nếu đã đăng nhập, chuyển hướng tới trang tài khoản
+ * - Render view 'dang_ky' để người dùng nhập thông tin đăng ký
+ */
 router.get('/dang-ky', (req, res) => {
   try {
     if (req.session.user) {
@@ -222,7 +284,21 @@ router.get('/dang-ky', (req, res) => {
   }
 });
 
-// Xử lý đăng ký, tạo user mới và lưu session.
+/**
+ * ROUTE: POST /nguoi-dung/dang-ky
+ * Xử lý đăng ký, tạo user mới và lưu session
+ * 
+ * Body Parameters:
+ * - email (string): Email (sẽ convert thành lowercase)
+ * - password (string): Mật khẩu
+ * - name (string): Tên người dùng
+ * 
+ * Logic:
+ * - Kiểm tra các field bắt buộc
+ * - Tạo user mới với dữ liệu từ form
+ * - Nếu email đã tồn tại (lỗi 11000 duplicate key), thông báo
+ * - Lưu thông tin vào session và chuyển hướng
+ */
 router.post('/dang-ky', async (req, res) => {
   try {
     const { email, password, name } = req.body;
@@ -253,7 +329,15 @@ router.post('/dang-ky', async (req, res) => {
   }
 });
 
-// Đăng xuất: xóa session và cookie.
+/**
+ * ROUTE: GET /nguoi-dung/dang-xuat
+ * Đăng xuất: xóa session và cookie
+ * 
+ * Logic:
+ * - Hủy session từ server
+ * - Xóa session cookie
+ * - Chuyển hướng về trang chủ
+ */
 router.get('/dang-xuat', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -267,7 +351,16 @@ router.get('/dang-xuat', (req, res) => {
   });
 });
 
-// API CRUD người dùng (fetch, update, delete).
+// =====================
+// API CRUD NGƯỜI DÙNG
+// =====================
+
+/**
+ * ROUTE: GET /nguoi-dung/api
+ * Lấy danh sách tất cả người dùng
+ * 
+ * Response: JSON array của tất cả users
+ */
 router.get('/api', async (req, res) => {
   try {
     const users = await User.find().lean();
@@ -277,6 +370,15 @@ router.get('/api', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: GET /nguoi-dung/api/:id
+ * Lấy chi tiết một người dùng theo ID
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của người dùng
+ * 
+ * Response: JSON object của user
+ */
 router.get('/api/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id).lean();
@@ -289,6 +391,17 @@ router.get('/api/:id', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: PUT /nguoi-dung/api/:id
+ * Cập nhật thông tin người dùng
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của người dùng
+ * 
+ * Body: Các field muốn cập nhật
+ * 
+ * Response: JSON object với user đã cập nhật
+ */
 router.put('/api/:id', async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -304,6 +417,15 @@ router.put('/api/:id', async (req, res) => {
   }
 });
 
+/**
+ * ROUTE: DELETE /nguoi-dung/api/:id
+ * Xóa người dùng khỏi database
+ * 
+ * URL Parameters:
+ * - id (string): MongoDB ID của người dùng
+ * 
+ * Response: JSON object với message xác nhận xóa
+ */
 router.delete('/api/:id', async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
@@ -316,7 +438,16 @@ router.delete('/api/:id', async (req, res) => {
   }
 });
 
-// Trang thông tin tài khoản - hiển thị thông tin hiện tại.
+/**
+ * ROUTE: GET /nguoi-dung/tai-khoan
+ * Hiển thị trang thông tin tài khoản cá nhân
+ * 
+ * Logic:
+ * - Kiểm tra người dùng đã đăng nhập chưa
+ * - Nếu chưa, chuyển hướng tới trang đăng nhập
+ * - Lấy thông tin user từ DB dựa trên session.user.id
+ * - Render view 'thong_tin_nguoi_dung' với thông tin user
+ */
 router.get('/tai-khoan', async (req, res) => {
   try {
     if (!req.session.user) {
@@ -338,7 +469,25 @@ router.get('/tai-khoan', async (req, res) => {
   }
 });
 
-// Cập nhật thông tin hồ sơ người dùng.
+/**
+ * ROUTE: POST /nguoi-dung/tai-khoan
+ * Cập nhật thông tin hồ sơ người dùng
+ * 
+ * Body Parameters:
+ * - name (string): Tên đầy đủ
+ * - phone (string): Số điện thoại
+ * - street (string): Đường phố
+ * - city (string): Thành phố
+ * - state (string): Tỉnh/thành phố
+ * - postalCode (string): Mã bưu điện
+ * - country (string): Quốc gia
+ * 
+ * Logic:
+ * - Kiểm tra đăng nhập
+ * - Cập nhật thông tin cá nhân và địa chỉ
+ * - Cập nhật session với thông tin mới
+ * - Chuyển hướng với thông báo thành công
+ */
 router.post('/tai-khoan', async (req, res) => {
   try {
     if (!req.session.user) {
