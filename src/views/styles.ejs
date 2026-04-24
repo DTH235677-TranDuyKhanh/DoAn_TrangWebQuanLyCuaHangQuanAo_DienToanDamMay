@@ -11,6 +11,8 @@
     --border: rgba(0, 0, 0, 0.08);
     --shadow: 0 28px 60px rgba(0, 0, 0, 0.08);
     --transition: all 0.25s ease;
+    --top-bar-height: 64px;
+    --header-height: 80px;
 }
 
 * {
@@ -30,6 +32,7 @@ body {
     color: var(--black);
     background: var(--bg);
     overflow-x: hidden;
+    padding-top: calc(var(--top-bar-height) + var(--header-height));
 }
 
 a {
@@ -57,9 +60,13 @@ button {
     letter-spacing: 0.14em;
     font-size: 12px;
     font-weight: 700;
-    position: sticky;
+    min-height: var(--top-bar-height);
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1002;
 }
 
 .top-bar-center {
@@ -90,20 +97,16 @@ button {
     border-color: var(--black);
 }
 
-/* Main site header: sticky so it stays visible while scrolling. */
+/* Main site header stays directly below the fixed top bar. */
 .header {
     background: var(--white);
     border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 48px;
-    z-index: 999;
-}
-
-@media (max-width: 992px) {
-    /* When the screen is smaller than 992px, set the header to the very top. */
-    .header {
-        top: 0;
-    }
+    position: fixed;
+    top: var(--top-bar-height);
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1001;
 }
 
 .header-inner {
@@ -112,7 +115,7 @@ button {
     justify-content: space-between;
     gap: 30px;
     padding: 12px 30px;
-    min-height: 56px;
+    min-height: var(--header-height);
 }
 
 .header-inner > *,
@@ -1042,6 +1045,10 @@ footer {
 }
 
 @media (max-width: 992px) {
+    :root {
+        --top-bar-height: 0px;
+    }
+
     .top-bar,
     .header-inner,
     .section,
